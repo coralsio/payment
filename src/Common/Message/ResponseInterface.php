@@ -25,21 +25,21 @@ interface ResponseInterface extends MessageInterface
     /**
      * Is the response successful?
      *
-     * @return boolean
+     * @return bool
      */
     public function isSuccessful();
 
     /**
      * Does the response require a redirect?
      *
-     * @return boolean
+     * @return bool
      */
     public function isRedirect();
 
     /**
      * Is the transaction cancelled by the user?
      *
-     * @return boolean
+     * @return bool
      */
     public function isCancelled();
 

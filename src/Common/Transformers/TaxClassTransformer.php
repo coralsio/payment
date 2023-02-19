@@ -32,6 +32,4 @@ class TaxClassTransformer extends BaseTransformer
 
         return parent::transformResponse($transformedArray);
     }
-
-
 }

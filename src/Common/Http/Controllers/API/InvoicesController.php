@@ -1,17 +1,15 @@
 <?php
 
-
 namespace Corals\Modules\Payment\Common\Http\Controllers\API;
 
 use Corals\Foundation\Http\Controllers\APIBaseController;
-use Corals\Modules\Payment\Common\Services\InvoiceService;
-use Corals\Modules\Payment\Common\Transformers\API\InvoicePresenter;
 use Corals\Modules\Payment\Common\DataTables\InvoicesDataTable;
 use Corals\Modules\Payment\Common\DataTables\MyInvoicesDataTable;
 use Corals\Modules\Payment\Common\Http\Requests\InvoiceRequest;
 use Corals\Modules\Payment\Common\Models\Invoice;
+use Corals\Modules\Payment\Common\Services\InvoiceService;
+use Corals\Modules\Payment\Common\Transformers\API\InvoicePresenter;
 use Illuminate\Http\Request;
-
 
 class InvoicesController extends APIBaseController
 {

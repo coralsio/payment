@@ -15,12 +15,12 @@ return [
         'invoice_option' => [
             'paid' => 'دفع',
             'failed' => 'فشل',
-            'pending' => 'قيد الانتظار'
+            'pending' => 'قيد الانتظار',
         ],
         'currency' => 'دقة',
     ],
     'tax_class' => [
-        'name' => 'الاسم'
+        'name' => 'الاسم',
     ],
     'tax' => [
         'name' => 'الاسم',
@@ -44,7 +44,7 @@ return [
         'symbol' => 'الرمز',
         'format' => 'الشكل',
         'exchange_rate' => 'سعر الصرف',
-    ]
+    ],
 
 
 ];

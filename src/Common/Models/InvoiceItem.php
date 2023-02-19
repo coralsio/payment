@@ -9,7 +9,9 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class InvoiceItem extends BaseModel
 {
-    use LogsActivity, ModelUniqueCode, PresentableTrait;
+    use LogsActivity;
+    use ModelUniqueCode;
+    use PresentableTrait;
 
     /**
      *  Model configuration.

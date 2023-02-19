@@ -2,7 +2,6 @@
 
 namespace Corals\Modules\Payment\Classes;
 
-
 use Corals\Modules\Payment\Common\Models\Tax;
 use Corals\Modules\Payment\Common\Models\TaxClass;
 use Corals\Modules\Payment\Payment;
@@ -10,7 +9,6 @@ use Corals\User\Models\User;
 use Illuminate\Support\Collection;
 use Money\Currencies\ISOCurrencies;
 use Money\Currency;
-
 
 class Payments
 {
@@ -22,14 +20,14 @@ class Payments
      * @param array $params
      * @throws \Exception
      */
-    function __construct($gateway_key = null, array $params = [])
+    public function __construct($gateway_key = null, array $params = [])
     {
         if ($gateway_key) {
             $gateway = Payment::create($gateway_key);
 
             $config = config('payment_' . strtolower($gateway_key));
 
-            if (!$config) {
+            if (! $config) {
                 throw new \Exception(trans('Payment::exception.invalid_gateway'));
             }
 
@@ -55,6 +53,7 @@ class Payments
     public function getCodeList()
     {
         $codes = \Corals\Modules\Payment\Common\Models\Currency::pluck('code', 'code');
+
         return $codes;
     }
 
@@ -67,7 +66,7 @@ class Payments
                 $paymentGateway = Payment::create($gatewayKey);
 
                 if (
-                    ($supportConfig && !$paymentGateway->getConfig($supportConfig))
+                    ($supportConfig && ! $paymentGateway->getConfig($supportConfig))
                     || ($excludeConfig && $paymentGateway->getConfig($excludeConfig))
                 ) {
                     unset($supportedGateways[$gatewayKey]);
@@ -78,7 +77,6 @@ class Payments
         return $supportedGateways;
     }
 
-
     public function loadGatewayScripts()
     {
         $scripts = "";
@@ -87,21 +85,19 @@ class Payments
             $payment_gateway = Payment::create($gateway);
             $scripts .= $payment_gateway->loadScripts();
         }
+
         return $scripts;
     }
-
 
     public function setAvailableGateways($supported_gateways)
     {
         \Settings::set('supported_payment_gateway', json_encode($supported_gateways));
     }
 
-
     public function isGatewaySupported($gateway)
     {
         return array_key_exists($gateway, $this->getAvailableGateways());
     }
-
 
     public function getTaxClassesList()
     {
@@ -111,12 +107,13 @@ class Payments
     public function getTaxesList()
     {
         return Tax::query()->join('tax_classes', 'tax_classes.id', 'taxes.tax_class_id')
-            ->select(\DB::raw("concat(tax_classes.name ,' (',taxes.name, ') - priority(', taxes.priority, ')') as label"),
-                'taxes.id')
+            ->select(
+                \DB::raw("concat(tax_classes.name ,' (',taxes.name, ') - priority(', taxes.priority, ')') as label"),
+                'taxes.id'
+            )
             ->orderBy('tax_class_id')->pluck('label', 'id')
             ->toArray();
     }
-
 
     /**
      * @param $taxable
@@ -129,8 +126,10 @@ class Payments
         try {
             return $this->calculateTaxClassTaxes($taxable->tax_classes, $address);
         } catch (\Exception $ex) {
-            throw new \Exception(trans('Payment::exception.tax.error_calculating_tax',
-                ['message' => $ex->getMessage()]));
+            throw new \Exception(trans(
+                'Payment::exception.tax.error_calculating_tax',
+                ['message' => $ex->getMessage()]
+            ));
         }
     }
 
@@ -153,20 +152,20 @@ class Payments
             foreach ($class_taxes as $tax) {
                 $calculate = false;
                 $taxState = strtolower($tax->state);
-                if (empty($tax->country) && !isset($applied_country[$tax->name])) {
+                if (empty($tax->country) && ! isset($applied_country[$tax->name])) {
                     $calculate = true;
                     $applied_country[$tax->name] = $tax->rate;
                 } else {
-                    if ($tax->country == $country && !isset($applied_country[$tax->name])) {
-                        if ($taxState == $state && !isset($applied_state[$tax->name])) {
-                            if (($tax->zip == $zip || empty($tax->zip)) && !isset($applied_zip[$tax->name])) {
+                    if ($tax->country == $country && ! isset($applied_country[$tax->name])) {
+                        if ($taxState == $state && ! isset($applied_state[$tax->name])) {
+                            if (($tax->zip == $zip || empty($tax->zip)) && ! isset($applied_zip[$tax->name])) {
                                 $calculate = true;
                                 $applied_country[$tax->name] = $tax->rate;
                                 $applied_state[$tax->name] = $tax->rate;
                                 $applied_zip[$tax->name] = $tax->rate;
                             }
                         } else {
-                            if (empty($taxState) && !isset($applied_state[$tax->name])) {
+                            if (empty($taxState) && ! isset($applied_state[$tax->name])) {
                                 $calculate = true;
                                 $applied_country[$tax->name] = $tax->rate;
                                 $applied_state[$tax->name] = $tax->rate;
@@ -190,7 +189,7 @@ class Payments
         return $taxes;
     }
 
-    function currency($amount, $currency = null)
+    public function currency($amount, $currency = null)
     {
         if (is_null($amount)) {
             $amount = 0;
@@ -203,25 +202,25 @@ class Payments
         return app('currency')->convert($amount, \Payments::admin_currency_code(), $this->session_currency());
     }
 
-    function session_currency()
+    public function session_currency()
     {
         return \Currency::getUserCurrency();
     }
 
-    function currency_symbol()
+    public function currency_symbol()
     {
         return \Currency::getCurrency()['symbol'];
     }
 
-    function currency_convert($amount, $from = null, $to = null, $format = false)
+    public function currency_convert($amount, $from = null, $to = null, $format = false)
     {
         if (($from == $to) && ($from != null)) {
             return $amount;
         }
-        if (!$from) {
+        if (! $from) {
             $from = \Payments::admin_currency_code();
         }
-        if (!$to) {
+        if (! $to) {
             $to = $this->session_currency();
         }
         $to = strtoupper($to);
@@ -237,15 +236,16 @@ class Payments
         if ($format) {
             return \Currency::format($amount, $to);
         }
+
         return $amount;
     }
 
-    function admin_currency($amount)
+    public function admin_currency($amount)
     {
         return \Currency::format($amount, \Payments::admin_currency_code());
     }
 
-    function admin_currency_code($lower_case = false)
+    public function admin_currency_code($lower_case = false)
     {
         $default_currency = config('currency.default');
         $admin_currency_code = \Settings::get('admin_currency_code', $default_currency);
@@ -256,13 +256,14 @@ class Payments
         }
     }
 
-    function getActiveCurrenciesList()
+    public function getActiveCurrenciesList()
     {
         $currencies = \Currency::getActiveCurrencies();
         $active_currencies = [];
         foreach ($currencies as $currency) {
             $active_currencies[$currency['code']] = $currency['code'] . " " . $currency['symbol'];
         }
+
         return $active_currencies;
     }
 
@@ -370,9 +371,9 @@ class Payments
             'currency' => $invoice->currency,
             'billing' => [
                 'billing_address' => [
-                    'email' => $invoice->user->email
-                ]
-            ]
+                    'email' => $invoice->user->email,
+                ],
+            ],
         ];
 
         $checkoutDetails = [
@@ -380,7 +381,7 @@ class Payments
             'gateway' => $this->gateway->getName(),
         ];
 
-        $user = user() ?? new User;
+        $user = user() ?? new User();
 
         $response = $this->gateway->createCharge(
             $parameters = $this->gateway->prepareCreateChargeParameters($order, $user, $checkoutDetails)
@@ -408,6 +409,7 @@ class Payments
             return true;
         } else {
             $message = 'pay Gateway Order Failed. ' . $response->getMessage();
+
             throw new \Exception($message);
         }
     }
@@ -432,6 +434,7 @@ class Payments
             return $status;
         } else {
             $message = data_get($response->getData(), 'error.message');
+
             throw new \Exception($message);
         }
     }
@@ -446,6 +449,7 @@ class Payments
             return $response->getData();
         } else {
             $message = data_get($response->getData(), 'error.message');
+
             throw new \Exception($message);
         }
     }
@@ -468,6 +472,7 @@ class Payments
             return $response->getData();
         } else {
             $message = data_get($response->getData(), 'error.message');
+
             throw new \Exception($message);
         }
     }

@@ -6,7 +6,6 @@ use Corals\Foundation\Transformers\FractalPresenter;
 
 class WebhookCallPresenter extends FractalPresenter
 {
-
     /**
      * @param array $extras
      * @return WebhookCallTransformer|\League\Fractal\TransformerAbstract

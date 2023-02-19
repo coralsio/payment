@@ -2,8 +2,8 @@
 
 namespace Corals\Modules\Payment\Common\Formatters;
 
-use NumberFormatter;
 use Corals\Modules\Payment\Common\Contracts\FormatterInterface;
+use NumberFormatter;
 
 class PHPIntl implements FormatterInterface
 {

@@ -1,12 +1,9 @@
 <?php
 
-use \Corals\Modules\Payment\Common\database\migrations\CreateTransactionsTable;
-use \Carbon\Carbon;
+use Carbon\Carbon;
 
-if (!\Schema::hasTable('payment_transactions')) {
-
+if (! \Schema::hasTable('payment_transactions')) {
     \Schema::create('payment_transactions', function (\Illuminate\Database\Schema\Blueprint $table) {
-
         $table->increments('id');
 
         $table->morphs('owner');
@@ -54,8 +51,8 @@ if (!\Schema::hasTable('payment_transactions')) {
                 'icon' => 'fa fa-exchange',
                 'target' => null,
                 'roles' => '["1"]',
-                'order' => 0
-            ]
+                'order' => 0,
+            ],
         ]);
     }
 
@@ -108,7 +105,7 @@ if (!\Schema::hasTable('payment_transactions')) {
             'guard_name' => config('auth.defaults.guard'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-        ]
+        ],
 
     ]);
 
@@ -116,9 +113,8 @@ if (!\Schema::hasTable('payment_transactions')) {
     $member_role = \Corals\User\Models\Role::where('name', 'member')->first();
     if ($member_role) {
         $member_role->forgetCachedPermissions();
-        if (!$member_role->hasPermissionTo('Payment::invoices.view')) {
+        if (! $member_role->hasPermissionTo('Payment::invoices.view')) {
             $member_role->givePermissionTo('Payment::invoices.view');
-
         }
     }
 }

@@ -48,22 +48,23 @@ class WebhookCallsDataTable extends BaseDataTable
             'exception' => ['title' => trans('Payment::attributes.webhook_call.exception')],
             'gateway' => ['title' => trans('Payment::attributes.webhook_call.gateway')],
             'processed' => ['title' => trans('Payment::attributes.webhook_call.processed')],
-            'created_at' => ['title' => trans('Corals::attributes.created_at')]
+            'created_at' => ['title' => trans('Corals::attributes.created_at')],
         ];
     }
 
     protected function getBulkActions()
     {
         return [
-            'process' => ['title' => trans('Payment::labels.webhook_call.process'), 'permission' => 'Payment::webhook.view', 'confirmation' => trans('Corals::labels.confirmation.title')
+            'process' => ['title' => trans('Payment::labels.webhook_call.process'), 'permission' => 'Payment::webhook.view', 'confirmation' => trans('Corals::labels.confirmation.title'),
 
-            ]
+            ],
         ];
     }
 
     protected function getOptions()
     {
         $url = url(config('payment_common.models.webhook_call.resource_url'));
+
         return ['resource_url' => $url];
     }
 }

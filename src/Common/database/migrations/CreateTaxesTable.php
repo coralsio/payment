@@ -31,7 +31,6 @@ class CreateTaxesTable extends Migration
             $table->softDeletes();
             $table->timestamps();
             $table->foreign('tax_class_id')->references('id')->on('tax_classes')->onDelete('cascade')->onUpdate('cascade');
-
         });
     }
 

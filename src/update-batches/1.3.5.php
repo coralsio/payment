@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 if (Schema::hasTable('currencies')) {
-    if (!Schema::hasColumn('currencies', 'created_by')) {
+    if (! Schema::hasColumn('currencies', 'created_by')) {
         Schema::table('currencies', function (Blueprint $table) {
             $table->unsignedInteger('created_by')->nullable()->index();
             $table->unsignedInteger('updated_by')->nullable()->index();
@@ -39,7 +39,7 @@ if (Corals\Menu\Models\Menu::query()->where('key', 'currencies')->count() === 0)
                 'description' => 'currencies List Menu Item',
                 'icon' => 'fa fa-money',
                 'target' => null, 'roles' => '["1"]',
-                'order' => 0
+                'order' => 0,
             ],
         ]);
     }

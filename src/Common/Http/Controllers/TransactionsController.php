@@ -23,7 +23,6 @@ class TransactionsController extends BaseController
         parent::__construct();
     }
 
-
     public function index(Request $request, TransactionsDataTable $dataTable)
     {
         $this->setViewSharedData([
@@ -40,7 +39,7 @@ class TransactionsController extends BaseController
     public function edit(Transaction $transaction)
     {
         $this->setViewSharedData([
-            'title_singular' => trans('Corals::labels.update_title', ['title' => $transaction->code])
+            'title_singular' => trans('Corals::labels.update_title', ['title' => $transaction->code]),
         ]);
 
         return view('Payment::transactions.create_edit')->with(compact('transaction'));
@@ -66,7 +65,6 @@ class TransactionsController extends BaseController
         return redirectTo($this->resource_url);
     }
 
-
     public function bulkAction(BulkRequest $request)
     {
         try {
@@ -74,72 +72,87 @@ class TransactionsController extends BaseController
             $selection = json_decode($request->input('selection'), true);
 
             switch ($action) {
-                case 'pending' :
+                case 'pending':
                     foreach ($selection as $selection_id) {
                         $transaction = Transaction::findByHash($selection_id);
                         if (user()->can('Payment::transaction.update')) {
                             $transaction->update([
-                                'status' => 'pending'
+                                'status' => 'pending',
                             ]);
                             $transaction->save();
                             $message = [
                                 'level' => 'success',
-                                'message' => trans('Payment::attributes.update_status',
-                                    ['item' => $this->title_singular])
+                                'message' => trans(
+                                    'Payment::attributes.update_status',
+                                    ['item' => $this->title_singular]
+                                ),
                             ];
                         } else {
                             $message = [
                                 'level' => 'error',
-                                'message' => trans('Payment::attributes.no_permission',
-                                    ['item' => $this->title_singular])
+                                'message' => trans(
+                                    'Payment::attributes.no_permission',
+                                    ['item' => $this->title_singular]
+                                ),
                             ];
                         }
                     }
+
                     break;
 
-                case 'completed' :
+                case 'completed':
                     foreach ($selection as $selection_id) {
                         $transaction = Transaction::findByHash($selection_id);
                         if (user()->can('Payment::transaction.update')) {
                             $transaction->update([
-                                'status' => 'completed'
+                                'status' => 'completed',
                             ]);
                             $transaction->save();
                             $message = [
                                 'level' => 'success',
-                                'message' => trans('Payment::attributes.update_status',
-                                    ['item' => $this->title_singular])
+                                'message' => trans(
+                                    'Payment::attributes.update_status',
+                                    ['item' => $this->title_singular]
+                                ),
                             ];
                         } else {
                             $message = [
                                 'level' => 'error',
-                                'message' => trans('Payment::attributes.no_permission',
-                                    ['item' => $this->title_singular])
+                                'message' => trans(
+                                    'Payment::attributes.no_permission',
+                                    ['item' => $this->title_singular]
+                                ),
                             ];
                         }
                     }
+
                     break;
-                case 'cancelled' :
+                case 'cancelled':
                     foreach ($selection as $selection_id) {
                         $transaction = Transaction::findByHash($selection_id);
                         if (user()->can('Payment::transaction.update')) {
                             $transaction->update([
-                                'status' => 'cancelled'
+                                'status' => 'cancelled',
                             ]);
                             $transaction->save();
                             $message = [
                                 'level' => 'success',
-                                'message' => trans('Payment::attributes.update_status',
-                                    ['item' => $this->title_singular])
+                                'message' => trans(
+                                    'Payment::attributes.update_status',
+                                    ['item' => $this->title_singular]
+                                ),
                             ];
                         } else {
                             $message = [
                                 'level' => 'error',
-                                'message' => trans('Payment::attributes.no_permission',
-                                    ['item' => $this->title_singular])
+                                'message' => trans(
+                                    'Payment::attributes.no_permission',
+                                    ['item' => $this->title_singular]
+                                ),
                             ];
                         }
                     }
+
                     break;
             }
         } catch (\Exception $exception) {
@@ -149,7 +162,6 @@ class TransactionsController extends BaseController
 
         return response()->json($message);
     }
-
 
     /**
      * @param TransactionRequest $request
@@ -163,7 +175,7 @@ class TransactionsController extends BaseController
 
             $message = [
                 'level' => 'success',
-                'message' => trans('Corals::messages.success.deleted', ['item' => $this->title_singular])
+                'message' => trans('Corals::messages.success.deleted', ['item' => $this->title_singular]),
             ];
         } catch (\Exception $exception) {
             log_exception($exception, Transaction::class, 'destroy');
@@ -172,7 +184,6 @@ class TransactionsController extends BaseController
 
         return response()->json($message);
     }
-
 
     /**
      * @param TransactionRequest $request
@@ -191,7 +202,7 @@ class TransactionsController extends BaseController
 
             $message = [
                 'level' => 'success',
-                'message' => trans('Payment::messages.reverse_request_submitted')
+                'message' => trans('Payment::messages.reverse_request_submitted'),
             ];
         } catch (\Exception $exception) {
             log_exception($exception, Transaction::class, 'reversePayout');

@@ -3,11 +3,11 @@
 namespace Corals\Modules\Payment\Common\Http\Controllers\API;
 
 use Corals\Foundation\Http\Controllers\APIBaseController;
-use Corals\Modules\Payment\Common\Services\TaxClassService;
-use Corals\Modules\Payment\Common\Transformers\API\TaxClassPresenter;
 use Corals\Modules\Payment\Common\DataTables\TaxClassesDataTable;
 use Corals\Modules\Payment\Common\Http\Requests\TaxClassRequest;
 use Corals\Modules\Payment\Common\Models\TaxClass;
+use Corals\Modules\Payment\Common\Services\TaxClassService;
+use Corals\Modules\Payment\Common\Transformers\API\TaxClassPresenter;
 
 class TaxClassesController extends APIBaseController
 {

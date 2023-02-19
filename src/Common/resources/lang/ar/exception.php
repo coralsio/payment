@@ -33,5 +33,5 @@ return [
     ],
     'payment_service' => [
         'error_load_module' => 'حدث خطأ عند تحميل الوحدة :code تم تعطيل وحدة التعليمات البرمجية',
-    ]
+    ],
 ];

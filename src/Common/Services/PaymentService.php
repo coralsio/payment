@@ -2,7 +2,6 @@
 
 namespace Corals\Modules\Payment\Common\Services;
 
-
 class PaymentService
 {
     public function getPaymentSettings()

@@ -33,7 +33,7 @@ class TaxTransformer extends BaseTransformer
             'rate' => $tax->rate . '%',
             'created_at' => format_date($tax->created_at),
             'updated_at' => format_date($tax->updated_at),
-            'action' => $this->actions($tax)
+            'action' => $this->actions($tax),
         ];
 
         return parent::transformResponse($transformedArray);

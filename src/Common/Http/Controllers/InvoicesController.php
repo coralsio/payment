@@ -23,7 +23,7 @@ class InvoicesController extends BaseController
         $this->title_singular = 'Payment::module.invoice.title_singular';
 
         $this->corals_middleware_except = array_merge($this->corals_middleware_except, [
-            'publicInvoice'
+            'publicInvoice',
         ]);
 
         parent::__construct();
@@ -47,7 +47,7 @@ class InvoicesController extends BaseController
     public function edit(InvoiceRequest $request, Invoice $invoice)
     {
         $this->setViewSharedData([
-            'title_singular' => trans('Corals::labels.update_title', ['title' => $invoice->code])
+            'title_singular' => trans('Corals::labels.update_title', ['title' => $invoice->code]),
         ]);
 
         $invoice->due_date = Carbon::parse($invoice->due_date)->toDateString();
@@ -102,72 +102,87 @@ class InvoicesController extends BaseController
             $selection = json_decode($request->input('selection'), true);
 
             switch ($action) {
-                case 'paid' :
+                case 'paid':
                     foreach ($selection as $selection_id) {
                         $invoice = Invoice::findByHash($selection_id);
                         if (user()->can('Payment::invoices.update')) {
                             $invoice->update([
-                                'status' => 'paid'
+                                'status' => 'paid',
                             ]);
                             $invoice->save();
                             $message = [
                                 'level' => 'success',
-                                'message' => trans('Payment::attributes.update_status',
-                                    ['item' => $this->title_singular])
+                                'message' => trans(
+                                    'Payment::attributes.update_status',
+                                    ['item' => $this->title_singular]
+                                ),
                             ];
                         } else {
                             $message = [
                                 'level' => 'error',
-                                'message' => trans('Payment::attributes.no_permission',
-                                    ['item' => $this->title_singular])
+                                'message' => trans(
+                                    'Payment::attributes.no_permission',
+                                    ['item' => $this->title_singular]
+                                ),
                             ];
                         }
                     }
+
                     break;
 
-                case 'pending' :
+                case 'pending':
                     foreach ($selection as $selection_id) {
                         $invoice = Invoice::findByHash($selection_id);
                         if (user()->can('Payment::invoices.update')) {
                             $invoice->update([
-                                'status' => 'pending'
+                                'status' => 'pending',
                             ]);
                             $invoice->save();
                             $message = [
                                 'level' => 'success',
-                                'message' => trans('Payment::attributes.update_status',
-                                    ['item' => $this->title_singular])
+                                'message' => trans(
+                                    'Payment::attributes.update_status',
+                                    ['item' => $this->title_singular]
+                                ),
                             ];
                         } else {
                             $message = [
                                 'level' => 'error',
-                                'message' => trans('Payment::attributes.no_permission',
-                                    ['item' => $this->title_singular])
+                                'message' => trans(
+                                    'Payment::attributes.no_permission',
+                                    ['item' => $this->title_singular]
+                                ),
                             ];
                         }
                     }
+
                     break;
-                case 'failed' :
+                case 'failed':
                     foreach ($selection as $selection_id) {
                         $invoice = Invoice::findByHash($selection_id);
                         if (user()->can('Payment::invoices.update')) {
                             $invoice->update([
-                                'status' => 'failed'
+                                'status' => 'failed',
                             ]);
                             $invoice->save();
                             $message = [
                                 'level' => 'success',
-                                'message' => trans('Payment::attributes.update_status',
-                                    ['item' => $this->title_singular])
+                                'message' => trans(
+                                    'Payment::attributes.update_status',
+                                    ['item' => $this->title_singular]
+                                ),
                             ];
                         } else {
                             $message = [
                                 'level' => 'error',
-                                'message' => trans('Payment::attributes.no_permission',
-                                    ['item' => $this->title_singular])
+                                'message' => trans(
+                                    'Payment::attributes.no_permission',
+                                    ['item' => $this->title_singular]
+                                ),
                             ];
                         }
                     }
+
                     break;
             }
         } catch (\Exception $exception) {
@@ -177,7 +192,6 @@ class InvoicesController extends BaseController
 
         return response()->json($message);
     }
-
 
     public function myInvoices(Request $request, MyInvoicesDataTable $dataTable)
     {
@@ -212,7 +226,7 @@ class InvoicesController extends BaseController
      */
     public function sendInvoice(Request $request, Invoice $invoice)
     {
-        if (!user()->can('sendInvoice', $invoice)) {
+        if (! user()->can('sendInvoice', $invoice)) {
             abort(403);
         }
 
@@ -221,7 +235,7 @@ class InvoicesController extends BaseController
 
             $message = [
                 'level' => 'success',
-                'message' => trans('Corals::messages.success.sent', ['item' => $this->title_singular])
+                'message' => trans('Corals::messages.success.sent', ['item' => $this->title_singular]),
             ];
         } catch (\Exception $exception) {
             log_exception($exception, Invoice::class, 'sendInvoice');
@@ -239,7 +253,7 @@ class InvoicesController extends BaseController
     {
         return view('Payment::invoices.invoice', [
             'invoice' => $invoice,
-            'PDF' => true
+            'PDF' => true,
         ]);
     }
 }

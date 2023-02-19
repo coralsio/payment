@@ -89,9 +89,9 @@ abstract class AbstractGateway implements GatewayInterface
      * @param array $parameters
      * @return $this
      */
-    public function initialize(array $parameters = array())
+    public function initialize(array $parameters = [])
     {
-        $this->parameters = new ParameterBag;
+        $this->parameters = new ParameterBag();
 
         // set default parameters
         foreach ($this->getDefaultParameters() as $key => $value) {
@@ -112,7 +112,7 @@ abstract class AbstractGateway implements GatewayInterface
      */
     public function getDefaultParameters()
     {
-        return array();
+        return [];
     }
 
     /**
@@ -145,7 +145,7 @@ abstract class AbstractGateway implements GatewayInterface
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function getTestMode()
     {
@@ -153,14 +153,13 @@ abstract class AbstractGateway implements GatewayInterface
     }
 
     /**
-     * @param boolean $value
+     * @param bool $value
      * @return $this
      */
     public function setTestMode($value)
     {
         return $this->setParameter('testMode', $value);
     }
-
 
     /**
      * @return string
@@ -182,7 +181,7 @@ abstract class AbstractGateway implements GatewayInterface
     /**
      * Supports Authorize
      *
-     * @return boolean True if this gateway supports the authorize() method
+     * @return bool True if this gateway supports the authorize() method
      */
     public function supportsAuthorize()
     {
@@ -192,7 +191,7 @@ abstract class AbstractGateway implements GatewayInterface
     /**
      * Supports Complete Authorize
      *
-     * @return boolean True if this gateway supports the completeAuthorize() method
+     * @return bool True if this gateway supports the completeAuthorize() method
      */
     public function supportsCompleteAuthorize()
     {
@@ -202,7 +201,7 @@ abstract class AbstractGateway implements GatewayInterface
     /**
      * Supports Capture
      *
-     * @return boolean True if this gateway supports the capture() method
+     * @return bool True if this gateway supports the capture() method
      */
     public function supportsCapture()
     {
@@ -212,7 +211,7 @@ abstract class AbstractGateway implements GatewayInterface
     /**
      * Supports Purchase
      *
-     * @return boolean True if this gateway supports the purchase() method
+     * @return bool True if this gateway supports the purchase() method
      */
     public function supportsPurchase()
     {
@@ -222,7 +221,7 @@ abstract class AbstractGateway implements GatewayInterface
     /**
      * Supports Complete Purchase
      *
-     * @return boolean True if this gateway supports the completePurchase() method
+     * @return bool True if this gateway supports the completePurchase() method
      */
     public function supportsCompletePurchase()
     {
@@ -232,7 +231,7 @@ abstract class AbstractGateway implements GatewayInterface
     /**
      * Supports Refund
      *
-     * @return boolean True if this gateway supports the refund() method
+     * @return bool True if this gateway supports the refund() method
      */
     public function supportsRefund()
     {
@@ -242,7 +241,7 @@ abstract class AbstractGateway implements GatewayInterface
     /**
      * Supports Void
      *
-     * @return boolean True if this gateway supports the void() method
+     * @return bool True if this gateway supports the void() method
      */
     public function supportsVoid()
     {
@@ -252,7 +251,7 @@ abstract class AbstractGateway implements GatewayInterface
     /**
      * Supports AcceptNotification
      *
-     * @return boolean True if this gateway supports the acceptNotification() method
+     * @return bool True if this gateway supports the acceptNotification() method
      */
     public function supportsAcceptNotification()
     {
@@ -262,7 +261,7 @@ abstract class AbstractGateway implements GatewayInterface
     /**
      * Supports CreateCard
      *
-     * @return boolean True if this gateway supports the create() method
+     * @return bool True if this gateway supports the create() method
      */
     public function supportsCreateCard()
     {
@@ -272,7 +271,7 @@ abstract class AbstractGateway implements GatewayInterface
     /**
      * Supports DeleteCard
      *
-     * @return boolean True if this gateway supports the delete() method
+     * @return bool True if this gateway supports the delete() method
      */
     public function supportsDeleteCard()
     {
@@ -282,7 +281,7 @@ abstract class AbstractGateway implements GatewayInterface
     /**
      * Supports UpdateCard
      *
-     * @return boolean True if this gateway supports the update() method
+     * @return bool True if this gateway supports the update() method
      */
     public function supportsUpdateCard()
     {
@@ -351,22 +350,22 @@ abstract class AbstractGateway implements GatewayInterface
         return [];
     }
 
-    public function createCustomer(array $parameters = array())
+    public function createCustomer(array $parameters = [])
     {
         return false;
     }
 
-    function getConfig($config_item, $default = null)
+    public function getConfig($config_item, $default = null)
     {
         return config('payment_' . strtolower($this->getName()) . '.' . $config_item, $default);
     }
 
-    function getSettings($key, $default = null)
+    public function getSettings($key, $default = null)
     {
         return Settings::get('payment_' . strtolower($this->getName()) . '_' . $key, $default);
     }
 
-    function userRequirePayment(User $user)
+    public function userRequirePayment(User $user)
     {
         return true;
     }
@@ -377,6 +376,7 @@ abstract class AbstractGateway implements GatewayInterface
         if ($plan_reference) {
             return $plan_reference->object_reference;
         }
+
         return false;
     }
 

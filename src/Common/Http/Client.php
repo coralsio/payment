@@ -2,12 +2,12 @@
 
 namespace Corals\Modules\Payment\Common\Http;
 
+use Corals\Modules\Payment\Common\Http\Exception\NetworkException;
+use Corals\Modules\Payment\Common\Http\Exception\RequestException;
 use Http\Client\HttpClient;
 use Http\Discovery\HttpClientDiscovery;
 use Http\Discovery\MessageFactoryDiscovery;
 use Http\Message\RequestFactory;
-use Corals\Modules\Payment\Common\Http\Exception\NetworkException;
-use Corals\Modules\Payment\Common\Http\Exception\RequestException;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 
@@ -47,8 +47,7 @@ class Client implements ClientInterface
         array $headers = [],
         $body = null,
         string $protocolVersion = '1.1'
-    ): ResponseInterface
-    {
+    ): ResponseInterface {
         $request = $this->requestFactory->createRequest($method, $uri, $headers, $body, $protocolVersion);
 
         return $this->sendRequest($request);

@@ -2,7 +2,6 @@
 
 namespace Corals\Modules\Payment\Common\Notifications;
 
-
 use Corals\User\Communication\Classes\CoralsBaseNotification;
 
 class InvoiceNotification extends CoralsBaseNotification
@@ -17,6 +16,7 @@ class InvoiceNotification extends CoralsBaseNotification
         if ($invoice->user) {
             return $invoice->user;
         }
+
         return [];
     }
 
@@ -27,17 +27,18 @@ class InvoiceNotification extends CoralsBaseNotification
     {
         $invoice = $this->data['invoice'];
 
-        if (!$invoice->user) {
+        if (! $invoice->user) {
             if ($invoice->hasProperty('billing_address')) {
                 $billing_details = $invoice->getProperty('billing_address');
+
                 return [
-                    'mail' => $billing_details['email']
+                    'mail' => $billing_details['email'],
                 ];
             }
         }
+
         return [];
     }
-
 
     protected function getAttachments()
     {
@@ -66,7 +67,7 @@ class InvoiceNotification extends CoralsBaseNotification
             'invoicable_id' => $invoice->invoicable ? $invoice->invoicable->getInvoiceReference() : '-',
             'invoicable_identifier' => $invoice->invoicable_type ? $invoice->invoicable->getIdentifier() : '-',
             'invoice_url' => $invoice->getShowUrl(),
-            'public_link' => $invoice->present('public_link')
+            'public_link' => $invoice->present('public_link'),
         ];
     }
 
@@ -79,8 +80,7 @@ class InvoiceNotification extends CoralsBaseNotification
             'invoicable_id' => 'Invoice Object Id',
             'invoicable_identifier' => 'Invoice Object Identifier',
             'invoice_url' => 'Invoice Show URL',
-            'public_link' => "Public Invoice Link"
+            'public_link' => "Public Invoice Link",
         ];
     }
-
 }

@@ -24,6 +24,7 @@ class Helper
     public static function camelCase($str)
     {
         $str = self::convertToLowercase($str);
+
         return preg_replace_callback(
             '/_([a-z])/',
             function ($match) {
@@ -58,7 +59,7 @@ class Helper
      * Validate a card number according to the Luhn algorithm.
      *
      * @param  string $number The card number to validate
-     * @return boolean True if the supplied card number is valid
+     * @return bool True if the supplied card number is valid
      */
     public static function validateLuhn($number)
     {
@@ -145,20 +146,19 @@ class Helper
      * The float datatype can then be converted into the string
      * format that the remote gateway requies.
      *
-     * @var string|int|float $value The value to convert.
+     * @var string|int|float The value to convert.
      * @throws InvalidArgumentException on a validation failure.
      * @return float The amount converted to a float.
      */
-
     public static function toFloat($value)
     {
-        if (!is_string($value) && !is_int($value) && !is_float($value)) {
+        if (! is_string($value) && ! is_int($value) && ! is_float($value)) {
             throw new InvalidArgumentException(trans('Payment::exception.messages_exception_common.data_not_valid'));
         }
 
         if (is_string($value)) {
             // Validate generic number, with optional sign and decimals.
-            if (!preg_match('/^[-]?[0-9]+(\.[0-9]*)?$/', $value)) {
+            if (! preg_match('/^[-]?[0-9]+(\.[0-9]*)?$/', $value)) {
                 throw new InvalidArgumentException(trans('Payment::exception.messages_exception_common.string_not_valid'));
             }
         }

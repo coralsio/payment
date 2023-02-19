@@ -51,6 +51,3 @@ Route::group(['prefix' => 'webhook-calls'], function () {
     Route::post('{webhookCall}/process', 'WebhooksController@Process');
     Route::post('bulk-action', 'WebhooksController@bulkAction');
 });
-
-
-

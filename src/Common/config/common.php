@@ -19,29 +19,29 @@ return [
                     'href_pattern' => ['pattern' => '[arg]/download', 'replace' => ['return $object->getShowUrl();']],
                     'label_pattern' => [
                         'pattern' => '[arg]',
-                        'replace' => ["return trans('Corals::labels.download');"]
+                        'replace' => ["return trans('Corals::labels.download');"],
                     ],
                     'target' => '_blank',
-                    'data' => []
+                    'data' => [],
                 ],
                 'pay_order' => [
                     'icon' => 'fa fa-money fa-fw',
                     'href_pattern' => [
                         'pattern' => 'e-commerce/checkout/?order=[arg]',
-                        'replace' => ['return $object->invoicable->hashed_id;']
+                        'replace' => ['return $object->invoicable->hashed_id;'],
                     ],
                     'label_pattern' => [
                         'pattern' => '[arg]',
-                        'replace' => ["return trans('Payment::labels.invoice.pay');"]
+                        'replace' => ["return trans('Payment::labels.invoice.pay');"],
                     ],
                     'policies' => ['payOrder'],
                     'data' => [
-                    ]
+                    ],
                 ],
                 'sendInvoice' => [
                     'href_pattern' => [
                         'pattern' => '[arg]/send-invoice',
-                        'replace' => ['return $object->getShowUrl();']
+                        'replace' => ['return $object->getShowUrl();'],
                     ],
                     'label_pattern' => ['pattern' => '[arg]', 'replace' => ["return trans('Corals::labels.send');"]],
                     'policies' => ['sendInvoice'],
@@ -50,10 +50,10 @@ return [
                         'table' => '.dataTableBuilder',
                         'confirmation_pattern' => [
                             'pattern' => '[arg]',
-                            'replace' => ["return trans('Payment::messages.send_invoice');"]
+                            'replace' => ["return trans('Payment::messages.send_invoice');"],
                         ],
-                    ]
-                ]
+                    ],
+                ],
             ],
             'ajaxSelectOptions' => [
                 'label' => 'Invoice (Payment)',
@@ -73,16 +73,16 @@ return [
                     'href_pattern' => ['pattern' => '[arg]/process', 'replace' => ['return $object->getShowUrl();']],
                     'label_pattern' => [
                         'pattern' => '[arg]',
-                        'replace' => ["return trans('Payment::attributes.webhook_call.process');"]
+                        'replace' => ["return trans('Payment::attributes.webhook_call.process');"],
                     ],
                     'policies' => ['process'],
                     'data' => [
                         'action' => 'post',
-                        'table' => '.dataTableBuilder'
-                    ]
+                        'table' => '.dataTableBuilder',
+                    ],
                 ],
                 'edit' => [],
-                'delete' => []
+                'delete' => [],
             ],
         ],
         'transaction' => [
@@ -99,7 +99,7 @@ return [
                     'href_pattern' => ['pattern' => '[arg]/reverse', 'replace' => ['return $object->getShowUrl();']],
                     'label_pattern' => [
                         'pattern' => '[arg]',
-                        'replace' => ["return trans('Payment::labels.transaction.reverse');"]
+                        'replace' => ["return trans('Payment::labels.transaction.reverse');"],
                     ],
                     'policies' => ['canReverseTransfer'],
                     'data' => [
@@ -107,11 +107,11 @@ return [
                         'table' => '.dataTableBuilder',
                         'confirmation_pattern' => [
                             'pattern' => '[arg]',
-                            'replace' => ["return trans('Payment::messages.reverse_confirmation');"]
+                            'replace' => ["return trans('Payment::messages.reverse_confirmation');"],
                         ],
-                    ]
-                ]
-            ]
+                    ],
+                ],
+            ],
         ],
         'tax_class' => [
             'presenter' => \Corals\Modules\Payment\Common\Transformers\TaxClassPresenter::class,
@@ -122,9 +122,9 @@ return [
                     'href_pattern' => ['pattern' => '[arg]/taxes', 'replace' => ['return $object->getShowUrl();']],
                     'label_pattern' => [
                         'pattern' => '[arg]',
-                        'replace' => ["return trans('Payment::module.tax.title');"]
+                        'replace' => ["return trans('Payment::module.tax.title');"],
                     ],
-                    'data' => []
+                    'data' => [],
                 ],
                 'edit' => [
                     'href_pattern' => ['pattern' => '[arg]', 'replace' => ['return $object->getEditUrl();']],
@@ -133,25 +133,24 @@ return [
                         'action' => 'modal-load',
                         'title_pattern' => [
                             'pattern' => 'Edit Tax Class : [arg]',
-                            'replace' => ['return $object->name;']
+                            'replace' => ['return $object->name;'],
                         ],
-                    ]
-                ]
-            ]
+                    ],
+                ],
+            ],
         ],
         'tax' => [
             'presenter' => \Corals\Modules\Payment\Common\Transformers\TaxPresenter::class,
             'resource_route' => 'tax-classes.taxes.index',
             'resource_relation' => 'tax_class',
-            'relation' => 'tax'
+            'relation' => 'tax',
         ],
         'currency' => [
             'presenter' => \Corals\Modules\Payment\Common\Transformers\CurrencyPresenter::class,
             'resource_url' => 'currencies',
             'actions' => [
-                'delete' => []
-            ]
+                'delete' => [],
+            ],
         ],
-    ]
+    ],
 ];
-

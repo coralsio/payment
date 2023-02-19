@@ -14,5 +14,4 @@ class CurrencyPresenter extends FractalPresenter
     {
         return new CurrencyTransformer($extras);
     }
-
 }

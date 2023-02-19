@@ -43,7 +43,7 @@ class InvoiceRequest extends BaseRequest
 
         if ($this->isStore()) {
             $rules = array_merge($rules, [
-                'code' => 'required|max:191|unique:invoices,code'
+                'code' => 'required|max:191|unique:invoices,code',
             ]);
         }
 

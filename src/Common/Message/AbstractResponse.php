@@ -30,7 +30,6 @@ use Symfony\Component\HttpFoundation\Response as HttpResponse;
  */
 abstract class AbstractResponse implements ResponseInterface
 {
-
     /**
      * The embodied request object.
      *
@@ -70,7 +69,7 @@ abstract class AbstractResponse implements ResponseInterface
     /**
      * Is the response successful?
      *
-     * @return boolean
+     * @return bool
      */
     public function isPending()
     {
@@ -80,7 +79,7 @@ abstract class AbstractResponse implements ResponseInterface
     /**
      * Does the response require a redirect?
      *
-     * @return boolean
+     * @return bool
      */
     public function isRedirect()
     {
@@ -90,7 +89,7 @@ abstract class AbstractResponse implements ResponseInterface
     /**
      * Is the response a transparent redirect?
      *
-     * @return boolean
+     * @return bool
      */
     public function isTransparentRedirect()
     {
@@ -100,7 +99,7 @@ abstract class AbstractResponse implements ResponseInterface
     /**
      * Is the transaction cancelled by the user?
      *
-     * @return boolean
+     * @return bool
      */
     public function isCancelled()
     {
@@ -214,10 +213,10 @@ abstract class AbstractResponse implements ResponseInterface
         $hiddenFields = '';
         foreach ($this->getRedirectData() as $key => $value) {
             $hiddenFields .= sprintf(
-                    '<input type="hidden" name="%1$s" value="%2$s" />',
-                    htmlentities($key, ENT_QUOTES, 'UTF-8', false),
-                    htmlentities($value, ENT_QUOTES, 'UTF-8', false)
-                ) . "\n";
+                '<input type="hidden" name="%1$s" value="%2$s" />',
+                htmlentities($key, ENT_QUOTES, 'UTF-8', false),
+                htmlentities($value, ENT_QUOTES, 'UTF-8', false)
+            ) . "\n";
         }
 
         $output = '<!DOCTYPE html>
@@ -252,7 +251,7 @@ abstract class AbstractResponse implements ResponseInterface
      */
     protected function validateRedirect()
     {
-        if (!$this instanceof RedirectResponseInterface || !$this->isRedirect()) {
+        if (! $this instanceof RedirectResponseInterface || ! $this->isRedirect()) {
             throw new RuntimeException(trans('Payment::exception.messages_exception_common.response_does_not_support'));
         }
 
@@ -260,7 +259,7 @@ abstract class AbstractResponse implements ResponseInterface
             throw new RuntimeException(trans('Payment::exception.messages_exception_common.url_cannot_be_empty'));
         }
 
-        if (!in_array($this->getRedirectMethod(), ['GET', 'POST'])) {
+        if (! in_array($this->getRedirectMethod(), ['GET', 'POST'])) {
             throw new RuntimeException(trans('Payment::exception.messages_exception_common.invalid_redirect_data', ['data' => $this->getRedirectData()]));
         }
     }
@@ -275,7 +274,8 @@ abstract class AbstractResponse implements ResponseInterface
         return print_r($this->data, true);
     }
 
-    public function getChargeReference(){
+    public function getChargeReference()
+    {
         return null;
     }
 }

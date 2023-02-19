@@ -7,7 +7,6 @@ use Corals\Modules\Payment\Common\Http\Requests\PaymentRequest;
 use Corals\Modules\Payment\Common\Services\PaymentService;
 use Illuminate\Http\Request;
 
-
 class PaymentsController extends BaseController
 {
     protected $paymentService;
@@ -29,7 +28,7 @@ class PaymentsController extends BaseController
      */
     public function settings(Request $request)
     {
-        if (!user()->hasPermissionTo('Payment::settings.update')) {
+        if (! user()->hasPermissionTo('Payment::settings.update')) {
             abort(403);
         }
 
@@ -42,7 +41,7 @@ class PaymentsController extends BaseController
 
     public function saveSettings(PaymentRequest $request)
     {
-        if (!user()->hasPermissionTo('Payment::settings.update')) {
+        if (! user()->hasPermissionTo('Payment::settings.update')) {
             abort(403);
         }
 
@@ -61,6 +60,4 @@ class PaymentsController extends BaseController
 
         return redirectTo($this->resource_url . '/settings');
     }
-
-
 }

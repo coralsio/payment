@@ -22,11 +22,12 @@ class PaymentMenuDatabaseSeeder extends Seeder
             'description' => 'Payments Menu Item',
             'icon' => 'fa fa-money',
             'target' => null, 'roles' => '["1"]',
-            'order' => 0
+            'order' => 0,
         ]);
 
         // seed subscriptions children menu
-        \DB::table('menus')->insert([
+        \DB::table('menus')->insert(
+            [
                 [
                     'parent_id' => $payments_menu_id,
                     'key' => null,
@@ -36,7 +37,7 @@ class PaymentMenuDatabaseSeeder extends Seeder
                     'description' => 'Payment Settings List Menu Item',
                     'icon' => 'fa fa-cog',
                     'target' => null, 'roles' => '["1"]',
-                    'order' => 0
+                    'order' => 0,
                 ],
                 [
                     'parent_id' => $payments_menu_id,
@@ -47,7 +48,7 @@ class PaymentMenuDatabaseSeeder extends Seeder
                     'description' => 'Webhook List Menu Item',
                     'icon' => 'fa fa-anchor',
                     'target' => null, 'roles' => '["1"]',
-                    'order' => 0
+                    'order' => 0,
                 ],
                 [
                     'parent_id' => $payments_menu_id,
@@ -58,7 +59,7 @@ class PaymentMenuDatabaseSeeder extends Seeder
                     'description' => 'Invoices List Menu Item',
                     'icon' => 'fa fa-file-text-o',
                     'target' => null, 'roles' => '["1"]',
-                    'order' => 0
+                    'order' => 0,
                 ],
                 [
                     'parent_id' => $payments_menu_id,
@@ -69,7 +70,7 @@ class PaymentMenuDatabaseSeeder extends Seeder
                     'description' => 'Tax Classes List Menu Item',
                     'icon' => 'fa fa-cut',
                     'target' => null, 'roles' => '["1"]',
-                    'order' => 0
+                    'order' => 0,
                 ],
                 [
                     'parent_id' => $payments_menu_id,
@@ -80,7 +81,7 @@ class PaymentMenuDatabaseSeeder extends Seeder
                     'description' => 'currencies List Menu Item',
                     'icon' => 'fa fa-money',
                     'target' => null, 'roles' => '["1"]',
-                    'order' => 0
+                    'order' => 0,
                 ],
                 [
                     'parent_id' => $payments_menu_id,
@@ -92,8 +93,8 @@ class PaymentMenuDatabaseSeeder extends Seeder
                     'icon' => 'fa fa-exchange',
                     'target' => null,
                     'roles' => '["1"]',
-                    'order' => 0
-                ]
+                    'order' => 0,
+                ],
             ]
         );
     }

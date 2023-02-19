@@ -11,6 +11,7 @@ class CurrencyPolicy extends BasePolicy
     protected $administrationPermission = 'Administrations::admin.payment';
 
     protected $skippedAbilities = ['create'];
+
     /**
      * @param User $user
      * @param Currency|null $currency

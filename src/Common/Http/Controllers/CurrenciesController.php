@@ -1,18 +1,15 @@
 <?php
 
-
 namespace Corals\Modules\Payment\Common\Http\Controllers;
 
 use Corals\Foundation\Http\Controllers\BaseController;
+use Corals\Foundation\Http\Requests\BulkRequest;
 use Corals\Modules\Payment\Common\DataTables\CurrenciesDataTable;
 use Corals\Modules\Payment\Common\Http\Requests\CurrencyRequest;
-use Corals\Foundation\Http\Requests\BulkRequest;
 use Corals\Modules\Payment\Common\Models\Currency;
-
 
 class CurrenciesController extends BaseController
 {
-
     public function __construct()
     {
         $this->resource_url = config('payment_common.models.currency.resource_url');
@@ -31,14 +28,12 @@ class CurrenciesController extends BaseController
         return $dataTable->render('Payment::currencies.index');
     }
 
-
     public function edit(CurrencyRequest $request, Currency $currency)
     {
         $this->setViewSharedData(['title_singular' => trans('Corals::labels.update_title', ['title' => $currency->code])]);
 
         return view('Payment::currencies.create_edit')->with(compact('currency'));
     }
-
 
     public function update(CurrencyRequest $request, Currency $currency)
     {
@@ -65,17 +60,16 @@ class CurrenciesController extends BaseController
     public function bulkAction(BulkRequest $request)
     {
         try {
-
             $action = $request->input('action');
             $selection = json_decode($request->input('selection'), true);
 
             switch ($action) {
-                case 'active' :
+                case 'active':
                     foreach ($selection as $selection_id) {
                         $currency = Currency::findByHash($selection_id);
                         if (user()->can('Payment::currency.update')) {
                             $currency->update([
-                                'active' => true
+                                'active' => true,
                             ]);
                             $currency->save();
                             $message = ['level' => 'success', 'message' => trans('Payment::attributes.update_status', ['item' => $this->title_singular])];
@@ -83,14 +77,15 @@ class CurrenciesController extends BaseController
                             $message = ['level' => 'error', 'message' => trans('Payment::attributes.no_permission', ['item' => $this->title_singular])];
                         }
                     }
+
                     break;
 
-                case 'inactive' :
+                case 'inactive':
                     foreach ($selection as $selection_id) {
                         $currency = Currency::findByHash($selection_id);
                         if (user()->can('Payment::invoices.update')) {
                             $currency->update([
-                                'active' => false
+                                'active' => false,
                             ]);
                             $currency->save();
                             $message = ['level' => 'success', 'message' => trans('Payment::attributes.update_status', ['item' => $this->title_singular])];
@@ -98,15 +93,16 @@ class CurrenciesController extends BaseController
                             $message = ['level' => 'error', 'message' => trans('Payment::attributes.no_permission', ['item' => $this->title_singular])];
                         }
                     }
+
                     break;
             }
         } catch (\Exception $exception) {
             log_exception($exception, \Currency::class, 'bulkAction');
             $message = ['level' => 'error', 'message' => $exception->getMessage()];
         }
+
         return response()->json($message);
     }
-
 
     public function destroy(CurrencyRequest $request, Currency $currency)
     {

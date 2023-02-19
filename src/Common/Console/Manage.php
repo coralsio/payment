@@ -2,8 +2,8 @@
 
 namespace Corals\Modules\Payment\Common\Console;
 
-use Illuminate\Support\Arr;
 use Illuminate\Console\Command;
+use Illuminate\Support\Arr;
 
 class Manage extends Command
 {

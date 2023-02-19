@@ -45,6 +45,7 @@ class PaymentViewTest extends TestCase
 
         $response->assertStatus(200)->assertViewIs('Payment::webhook_calls');
     }
+
     /**
      * A basic test example.
      *
@@ -56,6 +57,7 @@ class PaymentViewTest extends TestCase
 
         $response->assertStatus(200)->assertViewIs('Payment::invoices.index');
     }
+
     /**
      * A basic test example.
      *
@@ -67,6 +69,7 @@ class PaymentViewTest extends TestCase
 
         $response->assertStatus(200)->assertViewIs('Payment::currencies.index');
     }
+
     /**
      * A basic test example.
      *

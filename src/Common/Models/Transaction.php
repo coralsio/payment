@@ -9,7 +9,9 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class Transaction extends BaseModel
 {
-    use PresentableTrait, LogsActivity, ModelUniqueCode;
+    use PresentableTrait;
+    use LogsActivity;
+    use ModelUniqueCode;
 
     protected $table = 'payment_transactions';
 

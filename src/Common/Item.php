@@ -39,7 +39,7 @@ class Item implements ItemInterface
      */
     public function initialize(array $parameters = null)
     {
-        $this->parameters = new ParameterBag;
+        $this->parameters = new ParameterBag();
 
         Helper::initialize($this, $parameters);
 

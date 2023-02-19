@@ -5,18 +5,17 @@
 
 namespace Corals\Modules\Payment\Common\Message;
 
-use Money\Currencies\ISOCurrencies;
-use Money\Currency;
-use Money\Formatter\DecimalMoneyFormatter;
-use Money\Money;
-use Money\Number;
-use Money\Parser\DecimalMoneyParser;
 use Corals\Modules\Payment\Common\CreditCard;
 use Corals\Modules\Payment\Common\Exception\InvalidRequestException;
 use Corals\Modules\Payment\Common\Exception\RuntimeException;
 use Corals\Modules\Payment\Common\Helper;
 use Corals\Modules\Payment\Common\Http\ClientInterface;
 use Corals\Modules\Payment\Common\ItemBag;
+use Money\Currencies\ISOCurrencies;
+use Money\Currency;
+use Money\Formatter\DecimalMoneyFormatter;
+use Money\Money;
+use Money\Number;
 use Symfony\Component\HttpFoundation\ParameterBag;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
 
@@ -131,13 +130,13 @@ abstract class AbstractRequest implements RequestInterface
      * @return $this
      * @throws RuntimeException
      */
-    public function initialize(array $parameters = array())
+    public function initialize(array $parameters = [])
     {
         if (null !== $this->response) {
             throw new RuntimeException(trans('Payment::exception.messages_exception_common.request_cannot_be_modified'));
         }
 
-        $this->parameters = new ParameterBag;
+        $this->parameters = new ParameterBag();
 
         Helper::initialize($this, $parameters);
 
@@ -187,7 +186,7 @@ abstract class AbstractRequest implements RequestInterface
     /**
      * Gets the test mode of the request from the gateway.
      *
-     * @return boolean
+     * @return bool
      */
     public function getTestMode()
     {
@@ -197,7 +196,7 @@ abstract class AbstractRequest implements RequestInterface
     /**
      * Sets the test mode of the request.
      *
-     * @param boolean $value True for test mode on.
+     * @param bool $value True for test mode on.
      * @return AbstractRequest
      */
     public function setTestMode($value)
@@ -218,7 +217,7 @@ abstract class AbstractRequest implements RequestInterface
     {
         foreach (func_get_args() as $key) {
             $value = $this->parameters->get($key);
-            if (!isset($value)) {
+            if (! isset($value)) {
                 throw new InvalidRequestException(trans('Payment::exception.messages_exception_common.key_required', ['key' => $key]));
             }
         }
@@ -242,7 +241,7 @@ abstract class AbstractRequest implements RequestInterface
      */
     public function setCard($value)
     {
-        if ($value && !$value instanceof CreditCard) {
+        if ($value && ! $value instanceof CreditCard) {
             $value = new CreditCard($value);
         }
 
@@ -351,7 +350,7 @@ abstract class AbstractRequest implements RequestInterface
     /**
      * Get the payment amount as an integer.
      *
-     * @return integer
+     * @return int
      */
     public function getAmountInteger()
     {
@@ -383,6 +382,7 @@ abstract class AbstractRequest implements RequestInterface
         if ($value !== null) {
             $value = strtoupper($value);
         }
+
         return $this->setParameter('currency', $value);
     }
 
@@ -393,7 +393,7 @@ abstract class AbstractRequest implements RequestInterface
      */
     public function getCurrencyNumeric()
     {
-        if (!$this->getCurrency()) {
+        if (! $this->getCurrency()) {
             return null;
         }
 
@@ -407,7 +407,7 @@ abstract class AbstractRequest implements RequestInterface
     /**
      * Get the number of decimal places in the payment currency.
      *
-     * @return integer
+     * @return int
      */
     public function getCurrencyDecimalPlaces()
     {
@@ -520,7 +520,7 @@ abstract class AbstractRequest implements RequestInterface
      */
     public function setItems($items)
     {
-        if ($items && !$items instanceof ItemBag) {
+        if ($items && ! $items instanceof ItemBag) {
             $items = new ItemBag($items);
         }
 

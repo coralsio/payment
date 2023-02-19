@@ -3,10 +3,10 @@
 namespace Corals\Modules\Payment\Common\Http\Controllers;
 
 use Corals\Foundation\Http\Controllers\BaseController;
-use Corals\Modules\Payment\Common\Services\TaxClassService;
 use Corals\Modules\Payment\Common\DataTables\TaxClassesDataTable;
 use Corals\Modules\Payment\Common\Http\Requests\TaxClassRequest;
 use Corals\Modules\Payment\Common\Models\TaxClass;
+use Corals\Modules\Payment\Common\Services\TaxClassService;
 use Corals\Modules\Payment\Payment;
 
 class TaxClassesController extends BaseController
@@ -70,10 +70,10 @@ class TaxClassesController extends BaseController
         if ($tax) {
             $resource_route = config('payment_common.models.tax.resource_route');
             $url = route($resource_route, ['tax_class' => $tax->hashed_id]);
-
         } else {
             $url = $this->resource_url;
         }
+
         return redirectTo($url);
     }
 
@@ -86,6 +86,7 @@ class TaxClassesController extends BaseController
     {
         $this->setViewSharedData(['title_singular' => trans('Corals::labels.show_title', ['title' => $tax_class->name])]);
         $this->setViewSharedData(['edit_url' => $this->resource_url . '/' . $tax_class->hashed_id . '/edit']);
+
         return view('Payment::tax_classes.show')->with(compact('tax_class'));
     }
 

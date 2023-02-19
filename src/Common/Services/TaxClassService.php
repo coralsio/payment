@@ -6,5 +6,4 @@ use Corals\Foundation\Services\BaseServiceClass;
 
 class TaxClassService extends BaseServiceClass
 {
-
 }

@@ -67,7 +67,7 @@ class Update extends Command
         }
 
         if ($this->input->getOption('openexchangerates')) {
-            if (!$api = $this->currency->config('api_key')) {
+            if (! $api = $this->currency->config('api_key')) {
                 $this->error('An API key is needed from OpenExchangeRates.org to continue.');
 
                 return;
@@ -139,6 +139,7 @@ class Update extends Command
                 ]);
             } else {
                 $this->warn('Can\'t update rate for ' . $code);
+
                 continue;
             }
         }

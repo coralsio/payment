@@ -52,12 +52,12 @@ class InvoicesDataTable extends BaseDataTable
             'public_link_copy' => [
                 'title' => trans('Payment::labels.invoice.public_link'),
                 'orderable' => false,
-                'searchable' => false
+                'searchable' => false,
             ],
             'status' => ['title' => trans('Corals::attributes.status')],
             'description' => ['title' => trans('Payment::attributes.invoice.description')],
             'due_date' => ['title' => trans('Payment::attributes.invoice.due_date')],
-            'created_at' => ['title' => trans('Corals::attributes.created_at')]
+            'created_at' => ['title' => trans('Corals::attributes.created_at')],
         ];
     }
 
@@ -67,24 +67,25 @@ class InvoicesDataTable extends BaseDataTable
             'paid' => [
                 'title' => '<i class="fa fa-money" aria-hidden="true"></i> ' . trans('Payment::status.invoice.paid'),
                 'permission' => 'Payment::invoices.update',
-                'confirmation' => trans('Corals::labels.confirmation.title')
+                'confirmation' => trans('Corals::labels.confirmation.title'),
             ],
             'pending' => [
                 'title' => '<i class="fa fa-clock-o" aria-hidden="true"></i> ' . trans('Payment::status.invoice.pending'),
                 'permission' => 'Payment::invoices.update',
-                'confirmation' => trans('Corals::labels.confirmation.title')
+                'confirmation' => trans('Corals::labels.confirmation.title'),
             ],
             'failed' => [
                 'title' => '<i class="fa fa-ban" aria-hidden="true"></i>  ' . trans('Payment::status.invoice.failed'),
                 'permission' => 'Payment::invoices.update',
-                'confirmation' => trans('Corals::labels.confirmation.title')
-            ]
+                'confirmation' => trans('Corals::labels.confirmation.title'),
+            ],
         ];
     }
 
     protected function getOptions()
     {
         $url = url(config('payment_common.models.invoice.resource_url'));
+
         return ['resource_url' => $url];
     }
 }

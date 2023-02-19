@@ -28,7 +28,7 @@ class InvoiceTransformer extends BaseTransformer
             'pending' => 'info',
             'paid' => 'success',
             'failed' => 'danger',
-            'cancelled' => 'Cancelled'
+            'cancelled' => 'Cancelled',
         ];
 
         $customer = "";
@@ -50,15 +50,20 @@ class InvoiceTransformer extends BaseTransformer
         $transformedArray = [
             'id' => $invoice->id,
             'checkbox' => $this->generateCheckboxElement($invoice),
-            'status' => $invoice->status ? formatStatusAsLabels($invoice->status,
-                ['level' => $levels[$invoice->status], 'text' => trans('Payment::labels.invoice.' . $invoice->status)]) : "-",
+            'status' => $invoice->status ? formatStatusAsLabels(
+                $invoice->status,
+                ['level' => $levels[$invoice->status], 'text' => trans('Payment::labels.invoice.' . $invoice->status)]
+            ) : "-",
             'is_sent' => $invoice->is_sent ? '<i class="fa fa-check text-success"></i>' : '-',
             'code' => '<a href="' . $invoice->getShowURL() . '">' . $invoice->code . '</a>',
             'currency' => $currency,
             'customer' => $customer,
             'public_link' => $publicURL,
-            'public_link_copy' => generateCopyToClipBoard($invoice->hashed_id, $publicURL,
-                trans('Payment::labels.invoice.public_link')),
+            'public_link_copy' => generateCopyToClipBoard(
+                $invoice->hashed_id,
+                $publicURL,
+                trans('Payment::labels.invoice.public_link')
+            ),
             'billing_address' => $billing_address,
             'email' => $email,
             'description' => $invoice->description ? generatePopover($invoice->description) : '-',
@@ -71,7 +76,7 @@ class InvoiceTransformer extends BaseTransformer
             'invoicable_id' => $invoice->invoicable ? $invoice->invoicable->getInvoiceReference() : '-',
             'created_at' => format_date($invoice->created_at),
             'updated_at' => format_date($invoice->updated_at),
-            'action' => $this->actions($invoice)
+            'action' => $this->actions($invoice),
         ];
 
         return parent::transformResponse($transformedArray);
