@@ -13,10 +13,8 @@ use Corals\Modules\Payment\Providers\PaymentAuthServiceProvider;
 use Corals\Modules\Payment\Providers\PaymentObserverServiceProvider;
 use Corals\Modules\Payment\Providers\PaymentRouteServiceProvider;
 use Corals\Settings\Facades\Modules;
-use Corals\Settings\Models\Module;
 use Corals\User\Communication\Facades\CoralsNotification;
 use Illuminate\Foundation\AliasLoader;
-use Corals\Foundation\Providers;
 
 class PaymentServiceProvider extends BasePackageServiceProvider
 {
@@ -71,8 +69,10 @@ class PaymentServiceProvider extends BasePackageServiceProvider
                     //register gateways webhooks events
                     if ($events = config($configKey . '.events')) {
                         foreach ($events as $eventName => $jobClass) {
-                            \Corals\Modules\Payment\Facades\Webhooks::registerEvent("{$gateway}.{$eventName}",
-                                $jobClass);
+                            \Corals\Modules\Payment\Facades\Webhooks::registerEvent(
+                                "{$gateway}.{$eventName}",
+                                $jobClass
+                            );
                         }
                     }
                 }
@@ -127,8 +127,10 @@ class PaymentServiceProvider extends BasePackageServiceProvider
         $this->app->register(PaymentObserverServiceProvider::class);
         $this->app->register(PaymentAuthServiceProvider::class);
 
-        $this->app['router']->pushMiddlewareToGroup('web',
-            \Corals\Modules\Payment\Common\Middleware\CurrencyMiddleware::class);
+        $this->app['router']->pushMiddlewareToGroup(
+            'web',
+            \Corals\Modules\Payment\Common\Middleware\CurrencyMiddleware::class
+        );
     }
 
     public function registerWidgets()
