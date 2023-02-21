@@ -41,7 +41,7 @@ class PaymentServiceProvider extends BasePackageServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/Common/config/currency.php', 'currency');
 
         try {
-            $payment_modules = static::$modules
+            $payment_modules = $this->getModules()
                 ->where('type', 'payment')
                 ->where('enabled', true)
                 ->where('installed', true)
