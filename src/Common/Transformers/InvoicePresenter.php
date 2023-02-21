@@ -6,7 +6,6 @@ use Corals\Foundation\Transformers\FractalPresenter;
 
 class InvoicePresenter extends FractalPresenter
 {
-
     /**
      * @param array $extras
      * @return InvoiceTransformer|\League\Fractal\TransformerAbstract

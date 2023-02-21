@@ -33,7 +33,7 @@ return [
     ],
 
     'invoice' => [
-        'invoice_already_paid' => "Invoice :invoice already paid"
+        'invoice_already_paid' => "Invoice :invoice already paid",
     ],
 
     'invalid_gateway' => 'Invalid Gateway Configuration',

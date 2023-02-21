@@ -2,9 +2,6 @@
 
 namespace Corals\Modules\Payment;
 
-
-use function Couchbase\defaultDecoder;
-
 class Webhooks
 {
     public function __construct()

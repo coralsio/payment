@@ -8,7 +8,7 @@ return [
     ],
     'payment' => [
         'title' => 'الدفعات',
-        'title_singular' => 'دفع'
+        'title_singular' => 'دفع',
     ],
     'payment_settings' => [
         'title' => 'إعدادات الدفع',
@@ -21,17 +21,17 @@ return [
     'tax' => [
         'title' => 'الضرائب',
         'title_singular' => 'ضريبة',
-        'name' => '[:name]  الضرائب'
+        'name' => '[:name]  الضرائب',
     ],
     'webhook' => [
-        'title' => 'Webhook المكالمات'
+        'title' => 'Webhook المكالمات',
     ],
     'setting' => [
-        'title' => 'الاعدادات'
+        'title' => 'الاعدادات',
     ],
     'currency' => [
         'title' => 'العملات',
-        'title_singular' => 'العملة'
-    ]
+        'title_singular' => 'العملة',
+    ],
 
 ];

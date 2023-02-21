@@ -3,8 +3,8 @@
 namespace Corals\Modules\Payment\Common\Drivers;
 
 use DateTime;
-use Illuminate\Support\Collection;
 use Illuminate\Database\DatabaseManager;
+use Illuminate\Support\Collection;
 
 class Database extends AbstractDriver
 {

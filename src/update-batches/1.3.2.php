@@ -29,7 +29,7 @@
     'payment_stripe_sandbox_public_key',
     'payment_stripe_sandbox_secret_key',
     'payment_stripe_sandbox_webhook_key',
-    'supported_payment_gateway'
+    'supported_payment_gateway',
 ])->update(['category' => 'Payment']);
 
 \DB::table('permissions')->updateOrInsert(['name' => 'Payment::invoices.create',], [
@@ -37,4 +37,3 @@
     'created_at' => \Carbon\Carbon::now(),
     'updated_at' => \Carbon\Carbon::now(),
 ]);
-

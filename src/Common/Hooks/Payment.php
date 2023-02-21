@@ -2,21 +2,17 @@
 
 namespace Corals\Modules\Payment\Common\Hooks;
 
-
-
 class Payment
 {
     /**
      * Subscription constructor.
      */
-    function __construct()
+    public function __construct()
     {
     }
 
-
     public function show_available_currencies_menu()
     {
-
         $active_currencies = \Currency::getActiveCurrencies();
         if (count($active_currencies) <= 1) {
             return;
@@ -51,4 +47,3 @@ class Payment
         echo $menu;
     }
 }
-

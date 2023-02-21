@@ -2,6 +2,6 @@
 
 return [
     'currency' => [
-        'delete_default'=>'Default currency couldn\'t be deleted'
-    ]
+        'delete_default' => 'Default currency couldn\'t be deleted',
+    ],
 ];

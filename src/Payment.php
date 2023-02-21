@@ -52,7 +52,6 @@ use Corals\Modules\Payment\Common\Http\ClientInterface;
  */
 class Payment
 {
-
     /**
      * Internal factory storage
      *
@@ -70,7 +69,7 @@ class Payment
     public static function getFactory()
     {
         if (is_null(static::$factory)) {
-            static::$factory = new GatewayFactory;
+            static::$factory = new GatewayFactory();
         }
 
         return static::$factory;
@@ -111,6 +110,6 @@ class Payment
     {
         $factory = static::getFactory();
 
-        return call_user_func_array(array($factory, $method), $parameters);
+        return call_user_func_array([$factory, $method], $parameters);
     }
 }

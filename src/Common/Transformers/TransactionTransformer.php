@@ -28,7 +28,7 @@ class TransactionTransformer extends BaseTransformer
             'processing' => 'processing',
             'completed' => 'success',
             'failed' => 'danger',
-            'cancelled' => 'warning'
+            'cancelled' => 'warning',
         ];
 
         $payment_currency = strtoupper($transaction->paid_currency);
@@ -42,21 +42,23 @@ class TransactionTransformer extends BaseTransformer
             'invoice' => $invoice_link,
             'status' => formatStatusAsLabels($transaction->status, [
                 'level' => $levels[$transaction->status],
-                'text' => trans('Payment::status.transaction.' . $transaction->status)
+                'text' => trans('Payment::status.transaction.' . $transaction->status),
             ]),
             'source' => $transaction->sourcable ? $transaction->sourcable->getTransactionSource() : '-',
             'type' => trans('Payment::attributes.transaction.types.' . $transaction->type),
             'exception' => $transaction->exception ? generatePopover("'" . $transaction->getRawOriginal('exception') . "'") : '-',
             'gateway' => $transaction->gateway,
-            'paid_amount' => $transaction->paid_amount ? \Currency::format($transaction->paid_amount,
-                $payment_currency) : '-',
+            'paid_amount' => $transaction->paid_amount ? \Currency::format(
+                $transaction->paid_amount,
+                $payment_currency
+            ) : '-',
             'reference' => $transaction->reference,
             'amount' => \Payments::admin_currency($transaction->amount),
             'notes' => generatePopover("'" . $transaction->getRawOriginal('notes') . "'"),
             'processed' => $transaction->processed ? '<i class="fa fa-check text-success"></i>' : '-',
             'created_at' => format_date($transaction->created_at),
             'updated_at' => format_date($transaction->updated_at),
-            'action' => $this->actions($transaction)
+            'action' => $this->actions($transaction),
         ];
 
         return parent::transformResponse($transformedArray);

@@ -5,9 +5,9 @@
 
 namespace Corals\Modules\Payment\Common;
 
+use Corals\Modules\Payment\Common\Exception\InvalidCreditCardException;
 use DateTime;
 use DateTimeZone;
-use Corals\Modules\Payment\Common\Exception\InvalidCreditCardException;
 use Symfony\Component\HttpFoundation\ParameterBag;
 
 /**
@@ -93,18 +93,18 @@ use Symfony\Component\HttpFoundation\ParameterBag;
  */
 class CreditCard
 {
-    const BRAND_VISA = 'visa';
-    const BRAND_MASTERCARD = 'mastercard';
-    const BRAND_DISCOVER = 'discover';
-    const BRAND_AMEX = 'amex';
-    const BRAND_DINERS_CLUB = 'diners_club';
-    const BRAND_JCB = 'jcb';
-    const BRAND_SWITCH = 'switch';
-    const BRAND_SOLO = 'solo';
-    const BRAND_DANKORT = 'dankort';
-    const BRAND_MAESTRO = 'maestro';
-    const BRAND_FORBRUGSFORENINGEN = 'forbrugsforeningen';
-    const BRAND_LASER = 'laser';
+    public const BRAND_VISA = 'visa';
+    public const BRAND_MASTERCARD = 'mastercard';
+    public const BRAND_DISCOVER = 'discover';
+    public const BRAND_AMEX = 'amex';
+    public const BRAND_DINERS_CLUB = 'diners_club';
+    public const BRAND_JCB = 'jcb';
+    public const BRAND_SWITCH = 'switch';
+    public const BRAND_SOLO = 'solo';
+    public const BRAND_DANKORT = 'dankort';
+    public const BRAND_MAESTRO = 'maestro';
+    public const BRAND_FORBRUGSFORENINGEN = 'forbrugsforeningen';
+    public const BRAND_LASER = 'laser';
 
     /**
      * All known/supported card brands, and a regular expression to match them.
@@ -117,8 +117,8 @@ class CreditCard
      * @link https://github.com/Shopify/active_merchant/blob/master/lib/active_merchant/billing/credit_card_methods.rb
      * @var array
      */
-    const REGEX_MASTERCARD = '/^(5[1-5]\d{4}|677189)\d{10}$|^2(?:2(?:2[1-9]|[3-9]\d)|[3-6]\d\d|7(?:[01]\d|20))\d{12}$/';
-    protected $supported_cards = array(
+    public const REGEX_MASTERCARD = '/^(5[1-5]\d{4}|677189)\d{10}$|^2(?:2(?:2[1-9]|[3-9]\d)|[3-6]\d\d|7(?:[01]\d|20))\d{12}$/';
+    protected $supported_cards = [
         self::BRAND_VISA => '/^4\d{12}(\d{3})?$/',
         self::BRAND_MASTERCARD => self::REGEX_MASTERCARD,
         self::BRAND_DISCOVER => '/^(6011|65\d{2}|64[4-9]\d)\d{12}|(62\d{14})$/',
@@ -131,7 +131,7 @@ class CreditCard
         self::BRAND_MAESTRO => '/^(5[06-8]|6\d)\d{10,17}$/',
         self::BRAND_FORBRUGSFORENINGEN => '/^600722\d{10}$/',
         self::BRAND_LASER => '/^(6304|6706|6709|6771(?!89))\d{8}(\d{4}|\d{6,7})?$/',
-    );
+    ];
 
     /**
      * Internal storage of all of the card parameters.
@@ -174,7 +174,7 @@ class CreditCard
      *
      * @param  string $name The name of the new supported brand.
      * @param  string $expression The regular expression to check if a card is supported.
-     * @return boolean success
+     * @return bool success
      */
     public function addSupportedBrand($name, $expression)
     {
@@ -185,6 +185,7 @@ class CreditCard
         }
 
         $this->supported_cards[$name] = $expression;
+
         return true;
     }
 
@@ -198,7 +199,7 @@ class CreditCard
      */
     public function initialize(array $parameters = null)
     {
-        $this->parameters = new ParameterBag;
+        $this->parameters = new ParameterBag();
 
         Helper::initialize($this, $parameters);
 
@@ -274,14 +275,14 @@ class CreditCard
      */
     public function validate()
     {
-        $requiredParameters = array(
+        $requiredParameters = [
             'number' => 'credit card number',
             'expiryMonth' => 'expiration month',
-            'expiryYear' => 'expiration year'
-        );
+            'expiryYear' => 'expiration year',
+        ];
 
         foreach ($requiredParameters as $key => $val) {
-            if (!$this->getParameter($key)) {
+            if (! $this->getParameter($key)) {
                 throw new InvalidCreditCardException(trans('Payment::exception.messages_exception_common.val_require', ['val' => $val]));
             }
         }
@@ -290,11 +291,11 @@ class CreditCard
             throw new InvalidCreditCardException('Card has expired');
         }
 
-        if (!Helper::validateLuhn($this->getNumber())) {
+        if (! Helper::validateLuhn($this->getNumber())) {
             throw new InvalidCreditCardException(trans('Payment::exception.messages_exception_common.card_has_expired'));
         }
 
-        if (!is_null($this->getNumber()) && !preg_match('/^\d{12,19}$/i', $this->getNumber())) {
+        if (! is_null($this->getNumber()) && ! preg_match('/^\d{12,19}$/i', $this->getNumber())) {
             throw new InvalidCreditCardException(trans('Payment::exception.messages_exception_common.card_should_digits'));
         }
     }

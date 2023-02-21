@@ -46,7 +46,7 @@ interface GatewayInterface
      * Initialize gateway with parameters
      * @return $this
      */
-    public function initialize(array $parameters = array());
+    public function initialize(array $parameters = []);
 
     /**
      * Get all gateway parameters

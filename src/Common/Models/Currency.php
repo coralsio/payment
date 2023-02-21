@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Corals\Modules\Payment\Common\Models;
 
 use Corals\Foundation\Models\BaseModel;
@@ -9,14 +8,14 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class Currency extends BaseModel
 {
-    use PresentableTrait, LogsActivity;
+    use PresentableTrait;
+    use LogsActivity;
 
     protected $casts = [
-        'active' => 'boolean'
+        'active' => 'boolean',
     ];
 
     public $config = 'payment_common.models.currency';
 
     protected $guarded = ['id'];
-
 }

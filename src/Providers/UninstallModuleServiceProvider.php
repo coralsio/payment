@@ -14,7 +14,6 @@ use Corals\Modules\Payment\Common\database\seeds\PaymentDatabaseSeeder;
 
 class UninstallModuleServiceProvider extends BaseUninstallModuleServiceProvider
 {
-
     protected $migrations = [
         CreateInvoicesTable::class,
         CreateTransactionsTable::class,
@@ -22,7 +21,7 @@ class UninstallModuleServiceProvider extends BaseUninstallModuleServiceProvider
         CreateTaxClassesTable::class,
         CreateTaxesTable::class,
         CreateTaxablesTable::class,
-        CreateCurrencyTable::class
+        CreateCurrencyTable::class,
     ];
 
     protected function providerBooted()

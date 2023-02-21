@@ -6,5 +6,4 @@ use Corals\Foundation\Services\BaseServiceClass;
 
 class InvoiceService extends BaseServiceClass
 {
-
 }

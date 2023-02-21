@@ -6,15 +6,15 @@ use Corals\Modules\Payment\Common\Models\Invoice;
 
 class RevenueWidget
 {
-
-    function __construct()
+    public function __construct()
     {
     }
 
-    function run($args)
+    public function run($args)
     {
+        $revenue = Invoice::where('status', 'paid')->sum('total');
+        ;
 
-        $revenue = Invoice::where('status', 'paid')->sum('total');;
         return ' <!-- small box -->
             <div class="card">
                 <div class="small-box bg-red card-body">
@@ -31,5 +31,4 @@ class RevenueWidget
                 </div>
             </div>';
     }
-
 }

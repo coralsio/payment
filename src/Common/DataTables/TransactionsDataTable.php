@@ -47,24 +47,24 @@ class TransactionsDataTable extends BaseDataTable
             'invoice' => [
                 'title' => trans('Payment::attributes.transaction.invoice'),
                 'searchable' => false,
-                'orderable' => false
+                'orderable' => false,
             ],
             'type' => [
                 'title' => trans('Payment::attributes.transaction.type'),
                 'searchable' => false,
-                'orderable' => false
+                'orderable' => false,
             ],
             'status' => ['title' => trans('Payment::attributes.transaction.status')],
             'source' => [
                 'title' => trans('Payment::attributes.transaction.source'),
                 'searchable' => false,
-                'orderable' => false
+                'orderable' => false,
             ],
             'amount' => ['title' => trans('Payment::attributes.transaction.amount')],
             'paid_amount' => ['title' => trans('Payment::attributes.transaction.paid_amount')],
             'notes' => ['title' => trans('Payment::attributes.transaction.notes')],
             'reference' => ['title' => trans('Payment::attributes.transaction.reference')],
-            'created_at' => ['title' => trans('Corals::attributes.created_at')]
+            'created_at' => ['title' => trans('Corals::attributes.created_at')],
         ];
     }
 
@@ -81,6 +81,7 @@ class TransactionsDataTable extends BaseDataTable
     protected function getOptions()
     {
         $url = url(config('payment_common.models.transaction.resource_url'));
+
         return ['resource_url' => $url];
     }
 }

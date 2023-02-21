@@ -110,6 +110,5 @@ class PaymentPermissionsDatabaseSeeder extends Seeder
             $member_role->forgetCachedPermissions();
             $member_role->givePermissionTo('Payment::invoices.view');
         }
-
     }
 }

@@ -21,7 +21,7 @@ class WebhookCall extends BaseModel
     protected $dates = [
         'due_date',
         'created_at',
-        'updated_at'
+        'updated_at',
     ];
 
     protected $guarded = ['id'];
@@ -70,6 +70,7 @@ class WebhookCall extends BaseModel
     {
         $this->exception = null;
         $this->save();
+
         return $this;
     }
 

@@ -2,7 +2,7 @@
 
 return [
     'tax' => [
-        'index_title' => '[:name][:title]'
+        'index_title' => '[:name][:title]',
     ],
     'invoice' => [
         'title' => 'فاتورة',
@@ -33,13 +33,13 @@ return [
     ],
     'gateways' => [
         'create' => 'انشاء :gateway Gateway :class',
-        'create_title' => 'انشاء :gateway Gateway :class'
+        'create_title' => 'انشاء :gateway Gateway :class',
     ],
     'widgets' => [
         'revenue' => 'العائد',
         'monthly_revenue' => 'العائد الشهري',
-        'more_info' => ' مزيد من المعلومات <i class="fa fa-arrow-circle-right"></i>'
-    ]
+        'more_info' => ' مزيد من المعلومات <i class="fa fa-arrow-circle-right"></i>',
+    ],
 
 
 ];

@@ -2,12 +2,12 @@
 
 namespace Corals\Modules\Payment\Classes;
 
+use Corals\Modules\Payment\Common\Exception\InvalidRequestException;
 use Illuminate\Contracts\Cache\Factory as FactoryContract;
 use Illuminate\Support\Arr;
 use Money\Currencies\ISOCurrencies;
 use Money\Number;
 use Money\Parser\DecimalMoneyParser;
-use Corals\Modules\Payment\Common\Exception\InvalidRequestException;
 
 class Currency
 {
@@ -114,7 +114,7 @@ class Currency
      */
     public function getMoneyISOCurrency($amount, $currencyCode = null)
     {
-        $currencies = new ISOCurrencies;
+        $currencies = new ISOCurrencies();
         $moneyParser = new DecimalMoneyParser($currencies);
         $currencyCode = $currencyCode ?: $this->getUserCurrency();
         $currency = new \Money\Currency($currencyCode);
@@ -124,12 +124,12 @@ class Currency
         $money = $moneyParser->parse((string)$number, $currency->getCode());
 
         // Check for a negative amount.
-        if (!$this->negativeAmountAllowed && $money->isNegative()) {
+        if (! $this->negativeAmountAllowed && $money->isNegative()) {
             throw new InvalidRequestException(trans('Payment::exception.messages_exception_common.negative_amount_is_not_allowed'));
         }
 
         // Check for a zero amount.
-        if (!$this->zeroAmountAllowed && $money->isZero()) {
+        if (! $this->zeroAmountAllowed && $money->isZero()) {
             throw new InvalidRequestException(trans('Payment::exception.messages_exception_common.zero_amount_is_not_allowed'));
         }
 

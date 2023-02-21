@@ -7,7 +7,6 @@ use Corals\Modules\Payment\Common\Models\Currency;
 
 class CurrencyTransformer extends BaseTransformer
 {
-
     public function __construct($extras = [])
     {
         $this->resource_url = config('payment_common.models.currency.resource_url');
@@ -33,10 +32,9 @@ class CurrencyTransformer extends BaseTransformer
             'active' => formatStatusAsLabels($currency->active),
             'created_at' => format_date($currency->created_at),
             'updated_at' => format_date($currency->updated_at),
-            'action' => $this->actions($currency)
+            'action' => $this->actions($currency),
         ];
 
         return parent::transformResponse($transformedArray);
     }
-
 }

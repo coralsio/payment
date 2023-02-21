@@ -5,8 +5,8 @@
 
 namespace Corals\Modules\Payment\Common;
 
-use Corals\Modules\Payment\Common\Http\ClientInterface;
 use Corals\Modules\Payment\Common\Exception\RuntimeException;
+use Corals\Modules\Payment\Common\Http\ClientInterface;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
 
 /**
@@ -35,7 +35,7 @@ class GatewayFactory
      *
      * @var array
      */
-    private $gateways = array();
+    private $gateways = [];
 
     /**
      * All available gateways
@@ -64,7 +64,7 @@ class GatewayFactory
      */
     public function register($className)
     {
-        if (!in_array($className, $this->gateways)) {
+        if (! in_array($className, $this->gateways)) {
             $this->gateways[] = $className;
         }
     }
@@ -82,7 +82,7 @@ class GatewayFactory
     {
         $class = Helper::getGatewayClassName($class);
 
-        if (!class_exists($class)) {
+        if (! class_exists($class)) {
             throw new RuntimeException(trans('Payment::exception.messages_exception_common.class_not_found', ['class' => $class]));
         }
 

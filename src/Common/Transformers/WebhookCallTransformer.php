@@ -31,7 +31,7 @@ class WebhookCallTransformer extends BaseTransformer
             'processed' => $webhookCall->processed ? '<i class="fa fa-check text-success"></i>' : '-',
             'created_at' => format_date($webhookCall->created_at),
             'updated_at' => format_date($webhookCall->updated_at),
-            'action' => $this->actions($webhookCall)
+            'action' => $this->actions($webhookCall),
         ];
 
         return parent::transformResponse($transformedArray);

@@ -2,7 +2,7 @@
 
 return [
     'tax' => [
-        'index_title' => '[:name][:title]'
+        'index_title' => '[:name][:title]',
     ],
     'invoice' => [
         'pay' => 'Pay Invoice',
@@ -28,7 +28,7 @@ return [
         'failed' => 'Failed',
         'cancelled' => 'Cancelled',
         'download_invoice' => '<i class="fa fa-download"></i> Download invoice',
-        'public_link' => 'Public link'
+        'public_link' => 'Public link',
     ],
     'tax_class' => [
         'new_class_modal_title' => 'Add New Class',
@@ -42,17 +42,17 @@ return [
     ],
     'gateways' => [
         'create' => 'Create :gateway Gateway :class',
-        'create_title' => 'Create :gateway Gateway :class'
+        'create_title' => 'Create :gateway Gateway :class',
     ],
     'widgets' => [
         'revenue' => 'Revenue',
         'monthly_revenue' => 'Monthly Revenue',
-        'more_info' => ' More info <i class="fa fa-arrow-circle-right"></i>'
+        'more_info' => ' More info <i class="fa fa-arrow-circle-right"></i>',
     ],
     'select_payment' => 'Select payment',
     'pay' => 'Pay',
     'enter_payment' => 'Enter payment',
     'transaction' => [
         'reverse' => 'Reverse',
-    ]
+    ],
 ];

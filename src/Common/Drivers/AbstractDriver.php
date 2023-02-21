@@ -2,8 +2,8 @@
 
 namespace Corals\Modules\Payment\Common\Drivers;
 
-use Illuminate\Support\Arr;
 use Corals\Modules\Payment\Common\Contracts\DriverInterface;
+use Illuminate\Support\Arr;
 
 abstract class AbstractDriver implements DriverInterface
 {

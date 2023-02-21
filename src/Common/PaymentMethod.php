@@ -14,7 +14,6 @@ namespace Corals\Modules\Payment\Common;
  */
 class PaymentMethod
 {
-
     /**
      * The ID of the payment method.  Used as the payment method ID in the
      * Issuer class.

@@ -27,5 +27,4 @@ class CurrencyTransformer extends APIBaseTransformer
 
         return parent::transformResponse($transformedArray);
     }
-
 }

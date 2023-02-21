@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Corals\Modules\Payment\Common\Events;
-
 
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Foundation\Events\Dispatchable;
@@ -10,7 +8,9 @@ use Illuminate\Queue\SerializesModels;
 
 class InvoicePaidEvent
 {
-    use Dispatchable, InteractsWithSockets, SerializesModels;
+    use Dispatchable;
+    use InteractsWithSockets;
+    use SerializesModels;
 
     public $invoice;
     /**

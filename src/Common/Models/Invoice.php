@@ -10,10 +10,12 @@ use Corals\Modules\Payment\Common\Events\InvoicePaidEvent;
 use Corals\User\Models\User;
 use Spatie\Activitylog\Traits\LogsActivity;
 
-
 class Invoice extends BaseModel
 {
-    use PresentableTrait, LogsActivity, ModelUniqueCode, ModelPropertiesTrait;
+    use PresentableTrait;
+    use LogsActivity;
+    use ModelUniqueCode;
+    use ModelPropertiesTrait;
 
     /**
      *  Model configuration.
@@ -26,10 +28,9 @@ class Invoice extends BaseModel
     protected $casts = [
         'extras' => 'array',
         'is_sent' => 'boolean',
-        'properties' => 'json'
+        'properties' => 'json',
 
     ];
-
 
     public function display_address($address)
     {
@@ -105,13 +106,12 @@ class Invoice extends BaseModel
         return $this->hasMany(InvoiceItem::class);
     }
 
-
     public function getPdfFileName($fullPath = false)
     {
         $fileName = "invoice_{$this->code}.pdf";
 
         if ($fullPath) {
-            if (!\File::exists(storage_path('app/attachments/invoices/' . $this->id))) {
+            if (! \File::exists(storage_path('app/attachments/invoices/' . $this->id))) {
                 \File::makeDirectory(storage_path('app/attachments/invoices/' . $this->id), 0755, true);
             }
 

@@ -27,6 +27,7 @@ class TransactionPolicy extends BasePolicy
                 return true;
             }
         }
+
         return false;
     }
 
@@ -37,7 +38,7 @@ class TransactionPolicy extends BasePolicy
     public function create(User $user)
     {
         return false;
-      //  return $user->can('Payment::transaction.create');
+        //  return $user->can('Payment::transaction.create');
     }
 
     /**
@@ -64,7 +65,7 @@ class TransactionPolicy extends BasePolicy
     {
         $transactionCanBeReversed = $transaction->type == 'payout' && $transaction->reference && $transaction->status == 'completed';
 
-        if (!$transactionCanBeReversed) {
+        if (! $transactionCanBeReversed) {
             return false;
         }
 

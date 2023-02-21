@@ -21,13 +21,13 @@ return [
             'paid' => 'Paid',
             'failed' => 'Failed',
             'pending' => 'Pending',
-            'cancelled' => 'Cancelled'
+            'cancelled' => 'Cancelled',
         ],
         'currency' => 'Currency',
     ],
     'tax_class' => [
         'name' => 'Name',
-        'taxes' => 'Taxes'
+        'taxes' => 'Taxes',
     ],
     'tax' => [
         'name' => 'Name',
@@ -71,11 +71,11 @@ return [
             'withdrawal' => 'Withdrawal',
             'shipping' => 'Shipping',
             'order_refund' => 'Refund Order',
-            'payout' => 'Payout'
-        ]
+            'payout' => 'Payout',
+        ],
 
     ],
 
     'update_status' => 'Updated Status !',
-    'no_permission' => 'There is no permission update status'
+    'no_permission' => 'There is no permission update status',
 ];

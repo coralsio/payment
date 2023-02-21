@@ -2,10 +2,9 @@
 
 namespace Corals\Modules\Payment\Common\Http\Controllers\API;
 
-
 use Corals\Foundation\Http\Controllers\APIBaseController;
-use Corals\Modules\Payment\Common\Services\PaymentService;
 use Corals\Modules\Payment\Common\Models\TaxClass;
+use Corals\Modules\Payment\Common\Services\PaymentService;
 use Illuminate\Http\Request;
 
 class PaymentsController extends APIBaseController
@@ -36,7 +35,7 @@ class PaymentsController extends APIBaseController
             'tax_classes_ids' => 'required|array',
             'state' => '',
             'country' => '',
-            'zip' => ''
+            'zip' => '',
         ]);
 
         try {

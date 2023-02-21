@@ -8,7 +8,8 @@ use Spatie\Activitylog\Traits\LogsActivity;
 
 class TaxClass extends BaseModel
 {
-    use PresentableTrait, LogsActivity;
+    use PresentableTrait;
+    use LogsActivity;
 
     /**
      *  Model configuration.
@@ -21,18 +22,15 @@ class TaxClass extends BaseModel
 
     protected $guarded = ['id'];
 
-
     public function taxes()
     {
         return $this->hasMany(Tax::class);
     }
 
-
     public function getTaxByPriority()
     {
         return $this->taxes()->where('status', 'active')->orderBy('priority', 'desc')->get();
     }
-
 
     public function activeTaxes()
     {

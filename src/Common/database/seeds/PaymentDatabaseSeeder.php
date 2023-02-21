@@ -17,7 +17,6 @@ class PaymentDatabaseSeeder extends Seeder
      */
     public function run()
     {
-
         $this->call(CurrenciesTableSeeder::class);
         $this->call(PaymentPermissionsDatabaseSeeder::class);
         $this->call(PaymentMenuDatabaseSeeder::class);
@@ -45,7 +44,7 @@ class PaymentDatabaseSeeder extends Seeder
                 'hidden' => 0,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
-            ]
+            ],
         ]);
     }
 

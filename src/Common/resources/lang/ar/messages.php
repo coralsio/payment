@@ -2,5 +2,5 @@
 
 
 return [
-    'webhook_processed' => 'Webhook has been processed successfully'
+    'webhook_processed' => 'Webhook has been processed successfully',
 ];

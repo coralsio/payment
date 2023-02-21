@@ -3,15 +3,13 @@
 namespace Corals\Modules\Payment\Common\DataTables;
 
 use Corals\Foundation\DataTables\BaseDataTable;
-use Corals\Modules\Payment\Facades\Payments;
 use Corals\Modules\Payment\Common\Models\Currency;
 use Corals\Modules\Payment\Common\Transformers\CurrencyTransformer;
+use Corals\Modules\Payment\Facades\Payments;
 use Yajra\DataTables\EloquentDataTable;
 
 class CurrenciesDataTable extends BaseDataTable
 {
-
-
     public function dataTable($query)
     {
         $this->setResourceUrl(config('payment_common.models.currency.resource_url'));
@@ -26,7 +24,6 @@ class CurrenciesDataTable extends BaseDataTable
         return $model->newQuery();
     }
 
-
     protected function getColumns()
     {
         return [
@@ -38,7 +35,7 @@ class CurrenciesDataTable extends BaseDataTable
             'active' => ['title' => trans('Corals::attributes.status_options.active')],
             'exchange_rate' => ['title' => trans('Payment::attributes.currency.exchange_rate')],
             'created_at' => ['title' => trans('Corals::attributes.created_at')],
-            'updated_at' => ['title' => trans('Corals::attributes.updated_at')]
+            'updated_at' => ['title' => trans('Corals::attributes.updated_at')],
         ];
     }
 
@@ -49,7 +46,6 @@ class CurrenciesDataTable extends BaseDataTable
             'code' => ['title' => trans('Payment::attributes.currency.code'), 'class' => 'col-md-2', 'type' => 'select', 'options' => Payments::getCodeList(), 'active' => true],
         ];
     }
-
 
     protected function getBuilderParameters(): array
     {
@@ -67,8 +63,7 @@ class CurrenciesDataTable extends BaseDataTable
     protected function getOptions()
     {
         $url = url(config('payment_common.models.currency.resource_url'));
+
         return ['resource_url' => $url];
     }
-
-
 }

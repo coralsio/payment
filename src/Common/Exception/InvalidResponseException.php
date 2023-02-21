@@ -14,5 +14,3 @@ class InvalidResponseException extends \Exception implements PaymentException
         parent::__construct(trans($message), $code, $previous);
     }
 }
-
-

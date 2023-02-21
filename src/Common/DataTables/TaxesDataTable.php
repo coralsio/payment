@@ -30,7 +30,7 @@ class TaxesDataTable extends BaseDataTable
     public function query(Tax $model)
     {
         $tax_class = $this->request->route('tax_class');
-        if (!$tax_class) {
+        if (! $tax_class) {
             abort('404');
         }
 

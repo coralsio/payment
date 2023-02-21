@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Corals\Modules\Payment\Common\Http\Requests;
 
 use Corals\Foundation\Http\Requests\BaseRequest;
@@ -8,8 +7,6 @@ use Corals\Modules\Payment\Common\Models\Currency;
 
 class CurrencyRequest extends BaseRequest
 {
-
-
     public function authorize()
     {
         $this->setModel(Currency::class);
@@ -38,7 +35,7 @@ class CurrencyRequest extends BaseRequest
 
         if ($this->isStore()) {
             $rules = array_merge($rules, [
-                'code' => 'required:unique:currencies,code'
+                'code' => 'required:unique:currencies,code',
             ]);
         }
 
@@ -52,5 +49,4 @@ class CurrencyRequest extends BaseRequest
 
         return $rules;
     }
-
 }

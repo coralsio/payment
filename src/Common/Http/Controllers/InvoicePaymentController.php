@@ -13,7 +13,6 @@ use Illuminate\View\View;
 
 class InvoicePaymentController extends BaseController
 {
-
     public function __construct()
     {
         $this->corals_middleware = [];
@@ -35,8 +34,10 @@ class InvoicePaymentController extends BaseController
 
         $urlPrefix = '';
 
-        return view('Payment::invoices.public_invoice_payment',
-            compact('invoice', 'available_gateways', 'gateway', 'urlPrefix'));
+        return view(
+            'Payment::invoices.public_invoice_payment',
+            compact('invoice', 'available_gateways', 'gateway', 'urlPrefix')
+        );
     }
 
     /**
@@ -58,7 +59,6 @@ class InvoicePaymentController extends BaseController
         }
     }
 
-
     /**
      * @param Request $request
      * @param $gateway
@@ -74,6 +74,7 @@ class InvoicePaymentController extends BaseController
             return $invoicePayment->checkPaymentToken($params);
         } catch (\Exception $exception) {
             log_exception($exception, 'Invoice', 'gatewayCheckPaymentToken');
+
             return json_encode(['status' => 'error', 'error' => $exception->getMessage()]);
         }
     }
@@ -102,7 +103,7 @@ class InvoicePaymentController extends BaseController
     {
         $this->validate($request, [
             'gateway' => 'required',
-            'checkoutToken' => 'required'
+            'checkoutToken' => 'required',
         ]);
 
         if (in_array($invoice->status, ['paid'])) {
@@ -122,7 +123,7 @@ class InvoicePaymentController extends BaseController
         } catch (\Exception $exception) {
             $message = [
                 'level' => 'error',
-                'message' => $exception->getMessage()
+                'message' => $exception->getMessage(),
             ];
 
             $code = 400;
@@ -158,6 +159,4 @@ class InvoicePaymentController extends BaseController
 
         return $pdf->download($fileName);
     }
-
-
 }

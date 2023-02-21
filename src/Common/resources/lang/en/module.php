@@ -8,7 +8,7 @@ return [
     ],
     'payment' => [
         'title' => 'Payments',
-        'title_singular' => 'Payment'
+        'title_singular' => 'Payment',
     ],
     'payment_settings' => [
         'title' => 'Payment Settings',
@@ -21,20 +21,20 @@ return [
     'tax' => [
         'title' => 'Taxes',
         'title_singular' => 'Tax',
-        'name' => '[:name]  Taxes'
+        'name' => '[:name]  Taxes',
     ],
     'webhook' => [
-        'title' => 'Webhook Calls'
+        'title' => 'Webhook Calls',
     ],
     'transaction' => [
-        'title' => 'Transactions'
+        'title' => 'Transactions',
     ],
     'setting' => [
-        'title' => 'Settings'
+        'title' => 'Settings',
     ],
     'currency' => [
         'title' => 'Currencies',
         'title_singular' => 'Currency',
-    ]
+    ],
 
 ];

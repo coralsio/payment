@@ -14,7 +14,6 @@ use Corals\Modules\Payment\Common\database\seeds\PaymentDatabaseSeeder;
 
 class InstallModuleServiceProvider extends BaseInstallModuleServiceProvider
 {
-
     protected $migrations = [
         CreateInvoicesTable::class,
         CreateWebhookCallsTable::class,

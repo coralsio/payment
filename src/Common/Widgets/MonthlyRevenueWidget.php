@@ -2,21 +2,17 @@
 
 namespace Corals\Modules\Payment\Common\Widgets;
 
-
 use Corals\Modules\Payment\Common\Charts\MonthlyRevenue;
-use \Corals\Modules\Payment\Common\Models\Invoice;
+use Corals\Modules\Payment\Common\Models\Invoice;
 
 class MonthlyRevenueWidget
 {
-
-    function __construct()
+    public function __construct()
     {
     }
 
-    function run($args)
+    public function run($args)
     {
-
-
         $data = Invoice::where('status', 'paid')->select(
             \DB::raw('sum(total) as sums'),
             \DB::raw("DATE_FORMAT(due_date,'%M %Y') as months")
@@ -34,12 +30,9 @@ class MonthlyRevenueWidget
                     colorschemes: {
                         scheme: \'brewer.Paired12\'
                     }
-                }'
+                }',
         ]);
 
         return view('Corals::chart')->with(['chart' => $chart])->render();
-
-
     }
-
 }

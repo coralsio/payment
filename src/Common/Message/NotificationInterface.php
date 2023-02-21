@@ -7,9 +7,9 @@ namespace Corals\Modules\Payment\Common\Message;
  */
 interface NotificationInterface extends MessageInterface
 {
-    const STATUS_COMPLETED = 'completed';
-    const STATUS_PENDING = 'pending';
-    const STATUS_FAILED = 'failed';
+    public const STATUS_COMPLETED = 'completed';
+    public const STATUS_PENDING = 'pending';
+    public const STATUS_FAILED = 'failed';
 
     /**
      * Gateway Reference

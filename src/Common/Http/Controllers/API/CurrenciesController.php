@@ -1,16 +1,14 @@
 <?php
 
-
 namespace Corals\Modules\Payment\Common\Http\Controllers\API;
 
 use Corals\Foundation\Http\Controllers\APIBaseController;
+use Corals\Modules\Payment\Common\DataTables\CurrenciesDataTable;
 use Corals\Modules\Payment\Common\Http\Requests\CurrencyRequest;
+use Corals\Modules\Payment\Common\Models\Currency;
 use Corals\Modules\Payment\Common\Services\CurrencyService;
 use Corals\Modules\Payment\Common\Transformers\API\CurrencyPresenter;
-use Corals\Modules\Payment\Common\DataTables\CurrenciesDataTable;
-use Corals\Modules\Payment\Common\Models\Currency;
 use Illuminate\Http\Request;
-
 
 class CurrenciesController extends APIBaseController
 {

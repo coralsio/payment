@@ -31,7 +31,9 @@ class TaxClassRequest extends BaseRequest
 
 
         if ($this->isStore()) {
-            $rules = array_merge($rules, [
+            $rules = array_merge(
+                $rules,
+                [
                     'name' => 'required|max:191|unique:tax_classes,name',
                 ]
             );
@@ -40,7 +42,9 @@ class TaxClassRequest extends BaseRequest
         if ($this->isUpdate()) {
             $tax_class = $this->route('role');
 
-            $rules = array_merge($rules, [
+            $rules = array_merge(
+                $rules,
+                [
                     'name' => 'required|max:191|unique:tax_classes,name,' . $tax_class->id,
                 ]
             );
@@ -49,5 +53,4 @@ class TaxClassRequest extends BaseRequest
 
         return $rules;
     }
-
 }

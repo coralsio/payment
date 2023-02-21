@@ -15,6 +15,5 @@ class PaymentNotificationTemplatesTableSeeder extends Seeder
             'extras' => '[]',
             'via' => '["mail"]',
         ]);
-
     }
 }

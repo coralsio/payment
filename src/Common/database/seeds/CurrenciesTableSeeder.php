@@ -6,7 +6,6 @@ use Illuminate\Database\Seeder;
 
 class CurrenciesTableSeeder extends Seeder
 {
-
     /**
      * Auto generated seed file
      *
@@ -14,13 +13,11 @@ class CurrenciesTableSeeder extends Seeder
      */
     public function run()
     {
-
-
         \DB::table('currencies')->delete();
 
-        \DB::table('currencies')->insert(array(
+        \DB::table('currencies')->insert([
             0 =>
-                array(
+                [
                     'id' => 1,
                     'name' => 'UAE Dirham',
                     'code' => 'AED',
@@ -30,9 +27,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             1 =>
-                array(
+                [
                     'id' => 2,
                     'name' => 'Afghanistan, Afghani',
                     'code' => 'AFN',
@@ -42,9 +39,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             2 =>
-                array(
+                [
                     'id' => 3,
                     'name' => 'Albania, Lek',
                     'code' => 'ALL',
@@ -54,9 +51,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             3 =>
-                array(
+                [
                     'id' => 4,
                     'name' => 'Armenian Dram',
                     'code' => 'AMD',
@@ -66,9 +63,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             4 =>
-                array(
+                [
                     'id' => 5,
                     'name' => 'Netherlands Antillian Guilder',
                     'code' => 'ANG',
@@ -78,9 +75,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             5 =>
-                array(
+                [
                     'id' => 6,
                     'name' => 'Angola, Kwanza',
                     'code' => 'AOA',
@@ -90,9 +87,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             6 =>
-                array(
+                [
                     'id' => 7,
                     'name' => 'Argentine Peso',
                     'code' => 'ARS',
@@ -102,9 +99,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             7 =>
-                array(
+                [
                     'id' => 8,
                     'name' => 'Australian Dollar',
                     'code' => 'AUD',
@@ -114,9 +111,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             8 =>
-                array(
+                [
                     'id' => 9,
                     'name' => 'Aruban Guilder',
                     'code' => 'AWG',
@@ -126,9 +123,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             9 =>
-                array(
+                [
                     'id' => 10,
                     'name' => 'Azerbaijanian Manat',
                     'code' => 'AZN',
@@ -138,9 +135,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             10 =>
-                array(
+                [
                     'id' => 11,
                     'name' => 'Bosnia and Herzegovina, Convertible Marks',
                     'code' => 'BAM',
@@ -150,9 +147,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             11 =>
-                array(
+                [
                     'id' => 12,
                     'name' => 'Barbados Dollar',
                     'code' => 'BBD',
@@ -162,9 +159,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             12 =>
-                array(
+                [
                     'id' => 13,
                     'name' => 'Bangladesh, Taka',
                     'code' => 'BDT',
@@ -174,9 +171,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             13 =>
-                array(
+                [
                     'id' => 14,
                     'name' => 'Bulgarian Lev',
                     'code' => 'BGN',
@@ -186,9 +183,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             14 =>
-                array(
+                [
                     'id' => 15,
                     'name' => 'Bahraini Dinar',
                     'code' => 'BHD',
@@ -198,9 +195,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             15 =>
-                array(
+                [
                     'id' => 16,
                     'name' => 'Burundi Franc',
                     'code' => 'BIF',
@@ -210,9 +207,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             16 =>
-                array(
+                [
                     'id' => 17,
                     'name' => 'Bermudian Dollar',
                     'code' => 'BMD',
@@ -222,9 +219,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             17 =>
-                array(
+                [
                     'id' => 18,
                     'name' => 'Brunei Dollar',
                     'code' => 'BND',
@@ -234,9 +231,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             18 =>
-                array(
+                [
                     'id' => 19,
                     'name' => 'Bolivia, Boliviano',
                     'code' => 'BOB',
@@ -246,9 +243,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             19 =>
-                array(
+                [
                     'id' => 20,
                     'name' => 'Brazilian Real',
                     'code' => 'BRL',
@@ -258,9 +255,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             20 =>
-                array(
+                [
                     'id' => 21,
                     'name' => 'Bahamian Dollar',
                     'code' => 'BSD',
@@ -270,9 +267,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             21 =>
-                array(
+                [
                     'id' => 22,
                     'name' => 'Bhutan, Ngultrum',
                     'code' => 'BTN',
@@ -282,9 +279,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             22 =>
-                array(
+                [
                     'id' => 23,
                     'name' => 'Botswana, Pula',
                     'code' => 'BWP',
@@ -294,9 +291,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             23 =>
-                array(
+                [
                     'id' => 24,
                     'name' => 'Belarussian Ruble',
                     'code' => 'BYR',
@@ -306,9 +303,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:15:04',
-                ),
+                ],
             24 =>
-                array(
+                [
                     'id' => 25,
                     'name' => 'Belize Dollar',
                     'code' => 'BZD',
@@ -318,9 +315,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             25 =>
-                array(
+                [
                     'id' => 26,
                     'name' => 'Canadian Dollar',
                     'code' => 'CAD',
@@ -330,9 +327,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             26 =>
-                array(
+                [
                     'id' => 27,
                     'name' => 'Franc Congolais',
                     'code' => 'CDF',
@@ -342,9 +339,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             27 =>
-                array(
+                [
                     'id' => 28,
                     'name' => 'Swiss Franc',
                     'code' => 'CHF',
@@ -354,9 +351,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             28 =>
-                array(
+                [
                     'id' => 29,
                     'name' => 'Chilean Peso',
                     'code' => 'CLP',
@@ -366,9 +363,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             29 =>
-                array(
+                [
                     'id' => 30,
                     'name' => 'China Yuan Renminbi',
                     'code' => 'CNY',
@@ -378,9 +375,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             30 =>
-                array(
+                [
                     'id' => 31,
                     'name' => 'Colombian Peso',
                     'code' => 'COP',
@@ -390,9 +387,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             31 =>
-                array(
+                [
                     'id' => 32,
                     'name' => 'Costa Rican Colon',
                     'code' => 'CRC',
@@ -402,9 +399,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             32 =>
-                array(
+                [
                     'id' => 33,
                     'name' => 'Cuban Convertible Peso',
                     'code' => 'CUC',
@@ -414,9 +411,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             33 =>
-                array(
+                [
                     'id' => 34,
                     'name' => 'Cuban Peso',
                     'code' => 'CUP',
@@ -426,9 +423,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             34 =>
-                array(
+                [
                     'id' => 35,
                     'name' => 'Cape Verde Escudo',
                     'code' => 'CVE',
@@ -438,9 +435,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             35 =>
-                array(
+                [
                     'id' => 36,
                     'name' => 'Czech Koruna',
                     'code' => 'CZK',
@@ -450,9 +447,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             36 =>
-                array(
+                [
                     'id' => 37,
                     'name' => 'Djibouti Franc',
                     'code' => 'DJF',
@@ -462,9 +459,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             37 =>
-                array(
+                [
                     'id' => 38,
                     'name' => 'Danish Krone',
                     'code' => 'DKK',
@@ -474,9 +471,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             38 =>
-                array(
+                [
                     'id' => 39,
                     'name' => 'Dominican Peso',
                     'code' => 'DOP',
@@ -486,9 +483,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             39 =>
-                array(
+                [
                     'id' => 40,
                     'name' => 'Algerian Dinar',
                     'code' => 'DZD',
@@ -498,9 +495,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             40 =>
-                array(
+                [
                     'id' => 41,
                     'name' => 'Egyptian Pound',
                     'code' => 'EGP',
@@ -510,9 +507,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             41 =>
-                array(
+                [
                     'id' => 42,
                     'name' => 'Eritrea, Nakfa',
                     'code' => 'ERN',
@@ -522,9 +519,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             42 =>
-                array(
+                [
                     'id' => 43,
                     'name' => 'Ethiopian Birr',
                     'code' => 'ETB',
@@ -534,9 +531,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             43 =>
-                array(
+                [
                     'id' => 44,
                     'name' => 'Euro',
                     'code' => 'EUR',
@@ -546,9 +543,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 1,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             44 =>
-                array(
+                [
                     'id' => 45,
                     'name' => 'Fiji Dollar',
                     'code' => 'FJD',
@@ -558,9 +555,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             45 =>
-                array(
+                [
                     'id' => 46,
                     'name' => 'Falkland Islands Pound',
                     'code' => 'FKP',
@@ -570,9 +567,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             46 =>
-                array(
+                [
                     'id' => 47,
                     'name' => 'Pound Sterling',
                     'code' => 'GBP',
@@ -582,9 +579,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 1,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             47 =>
-                array(
+                [
                     'id' => 48,
                     'name' => 'Georgia, Lari',
                     'code' => 'GEL',
@@ -594,9 +591,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             48 =>
-                array(
+                [
                     'id' => 49,
                     'name' => 'Ghana Cedi',
                     'code' => 'GHS',
@@ -606,9 +603,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             49 =>
-                array(
+                [
                     'id' => 50,
                     'name' => 'Gibraltar Pound',
                     'code' => 'GIP',
@@ -618,9 +615,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             50 =>
-                array(
+                [
                     'id' => 51,
                     'name' => 'Gambia, Dalasi',
                     'code' => 'GMD',
@@ -630,9 +627,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             51 =>
-                array(
+                [
                     'id' => 52,
                     'name' => 'Guatemala, Quetzal',
                     'code' => 'GTQ',
@@ -642,9 +639,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:04',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             52 =>
-                array(
+                [
                     'id' => 53,
                     'name' => 'Guyana Dollar',
                     'code' => 'GYD',
@@ -654,9 +651,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             53 =>
-                array(
+                [
                     'id' => 54,
                     'name' => 'Hong Kong Dollar',
                     'code' => 'HKD',
@@ -666,9 +663,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             54 =>
-                array(
+                [
                     'id' => 55,
                     'name' => 'Honduras, Lempira',
                     'code' => 'HNL',
@@ -678,9 +675,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             55 =>
-                array(
+                [
                     'id' => 56,
                     'name' => 'Croatian Kuna',
                     'code' => 'HRK',
@@ -690,9 +687,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             56 =>
-                array(
+                [
                     'id' => 57,
                     'name' => 'Haiti, Gourde',
                     'code' => 'HTG',
@@ -702,9 +699,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             57 =>
-                array(
+                [
                     'id' => 58,
                     'name' => 'Hungary, Forint',
                     'code' => 'HUF',
@@ -714,9 +711,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             58 =>
-                array(
+                [
                     'id' => 59,
                     'name' => 'Indonesia, Rupiah',
                     'code' => 'IDR',
@@ -726,9 +723,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             59 =>
-                array(
+                [
                     'id' => 60,
                     'name' => 'New Israeli Shekel',
                     'code' => 'ILS',
@@ -738,9 +735,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             60 =>
-                array(
+                [
                     'id' => 61,
                     'name' => 'Indian Rupee',
                     'code' => 'INR',
@@ -750,9 +747,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             61 =>
-                array(
+                [
                     'id' => 62,
                     'name' => 'Iraqi Dinar',
                     'code' => 'IQD',
@@ -762,9 +759,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             62 =>
-                array(
+                [
                     'id' => 63,
                     'name' => 'Iranian Rial',
                     'code' => 'IRR',
@@ -774,9 +771,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             63 =>
-                array(
+                [
                     'id' => 64,
                     'name' => 'Iceland Krona',
                     'code' => 'ISK',
@@ -786,9 +783,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             64 =>
-                array(
+                [
                     'id' => 65,
                     'name' => 'Jamaican Dollar',
                     'code' => 'JMD',
@@ -798,9 +795,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             65 =>
-                array(
+                [
                     'id' => 66,
                     'name' => 'Jordanian Dinar',
                     'code' => 'JOD',
@@ -810,9 +807,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             66 =>
-                array(
+                [
                     'id' => 67,
                     'name' => 'Japan, Yen',
                     'code' => 'JPY',
@@ -822,9 +819,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             67 =>
-                array(
+                [
                     'id' => 68,
                     'name' => 'Kenyan Shilling',
                     'code' => 'KES',
@@ -834,9 +831,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             68 =>
-                array(
+                [
                     'id' => 69,
                     'name' => 'Kyrgyzstan, Som',
                     'code' => 'KGS',
@@ -846,9 +843,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             69 =>
-                array(
+                [
                     'id' => 70,
                     'name' => 'Cambodia, Riel',
                     'code' => 'KHR',
@@ -858,9 +855,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             70 =>
-                array(
+                [
                     'id' => 71,
                     'name' => 'Comoro Franc',
                     'code' => 'KMF',
@@ -870,9 +867,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             71 =>
-                array(
+                [
                     'id' => 72,
                     'name' => 'North Korean Won',
                     'code' => 'KPW',
@@ -882,9 +879,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             72 =>
-                array(
+                [
                     'id' => 73,
                     'name' => 'South Korea, Won',
                     'code' => 'KRW',
@@ -894,9 +891,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             73 =>
-                array(
+                [
                     'id' => 74,
                     'name' => 'Kuwaiti Dinar',
                     'code' => 'KWD',
@@ -906,9 +903,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             74 =>
-                array(
+                [
                     'id' => 75,
                     'name' => 'Cayman Islands Dollar',
                     'code' => 'KYD',
@@ -918,9 +915,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             75 =>
-                array(
+                [
                     'id' => 76,
                     'name' => 'Kazakhstan, Tenge',
                     'code' => 'KZT',
@@ -930,9 +927,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             76 =>
-                array(
+                [
                     'id' => 77,
                     'name' => 'Laos, Kip',
                     'code' => 'LAK',
@@ -942,9 +939,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             77 =>
-                array(
+                [
                     'id' => 78,
                     'name' => 'Lebanese Pound',
                     'code' => 'LBP',
@@ -954,9 +951,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             78 =>
-                array(
+                [
                     'id' => 79,
                     'name' => 'Sri Lanka Rupee',
                     'code' => 'LKR',
@@ -966,9 +963,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             79 =>
-                array(
+                [
                     'id' => 80,
                     'name' => 'Liberian Dollar',
                     'code' => 'LRD',
@@ -978,9 +975,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             80 =>
-                array(
+                [
                     'id' => 81,
                     'name' => 'Lesotho, Loti',
                     'code' => 'LSL',
@@ -990,9 +987,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             81 =>
-                array(
+                [
                     'id' => 82,
                     'name' => 'Libyan Dinar',
                     'code' => 'LYD',
@@ -1002,9 +999,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             82 =>
-                array(
+                [
                     'id' => 83,
                     'name' => 'Moroccan Dirham',
                     'code' => 'MAD',
@@ -1014,9 +1011,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             83 =>
-                array(
+                [
                     'id' => 84,
                     'name' => 'Moldovan Leu',
                     'code' => 'MDL',
@@ -1026,9 +1023,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             84 =>
-                array(
+                [
                     'id' => 85,
                     'name' => 'Malagasy Ariary',
                     'code' => 'MGA',
@@ -1038,9 +1035,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             85 =>
-                array(
+                [
                     'id' => 86,
                     'name' => 'Macedonia, Denar',
                     'code' => 'MKD',
@@ -1050,9 +1047,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             86 =>
-                array(
+                [
                     'id' => 87,
                     'name' => 'Myanmar, Kyat',
                     'code' => 'MMK',
@@ -1062,9 +1059,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             87 =>
-                array(
+                [
                     'id' => 88,
                     'name' => 'Mongolia, Tugrik',
                     'code' => 'MNT',
@@ -1074,9 +1071,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             88 =>
-                array(
+                [
                     'id' => 89,
                     'name' => 'Macao, Pataca',
                     'code' => 'MOP',
@@ -1086,9 +1083,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             89 =>
-                array(
+                [
                     'id' => 90,
                     'name' => 'Mauritania, Ouguiya',
                     'code' => 'MRO',
@@ -1098,9 +1095,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             90 =>
-                array(
+                [
                     'id' => 91,
                     'name' => 'Maltese Lira',
                     'code' => 'MTL',
@@ -1110,9 +1107,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:15:05',
-                ),
+                ],
             91 =>
-                array(
+                [
                     'id' => 92,
                     'name' => 'Mauritius Rupee',
                     'code' => 'MUR',
@@ -1122,9 +1119,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             92 =>
-                array(
+                [
                     'id' => 93,
                     'name' => 'Maldives, Rufiyaa',
                     'code' => 'MVR',
@@ -1134,9 +1131,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             93 =>
-                array(
+                [
                     'id' => 94,
                     'name' => 'Malawi, Kwacha',
                     'code' => 'MWK',
@@ -1146,9 +1143,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             94 =>
-                array(
+                [
                     'id' => 95,
                     'name' => 'Mexican Peso',
                     'code' => 'MXN',
@@ -1158,9 +1155,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             95 =>
-                array(
+                [
                     'id' => 96,
                     'name' => 'Malaysian Ringgit',
                     'code' => 'MYR',
@@ -1170,9 +1167,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             96 =>
-                array(
+                [
                     'id' => 97,
                     'name' => 'Mozambique Metical',
                     'code' => 'MZN',
@@ -1182,9 +1179,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             97 =>
-                array(
+                [
                     'id' => 98,
                     'name' => 'Namibian Dollar',
                     'code' => 'NAD',
@@ -1194,9 +1191,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             98 =>
-                array(
+                [
                     'id' => 99,
                     'name' => 'Nigeria, Naira',
                     'code' => 'NGN',
@@ -1206,9 +1203,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             99 =>
-                array(
+                [
                     'id' => 100,
                     'name' => 'Nicaragua, Cordoba Oro',
                     'code' => 'NIO',
@@ -1218,9 +1215,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             100 =>
-                array(
+                [
                     'id' => 101,
                     'name' => 'Norwegian Krone',
                     'code' => 'NOK',
@@ -1230,9 +1227,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             101 =>
-                array(
+                [
                     'id' => 102,
                     'name' => 'Nepalese Rupee',
                     'code' => 'NPR',
@@ -1242,9 +1239,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             102 =>
-                array(
+                [
                     'id' => 103,
                     'name' => 'New Zealand Dollar',
                     'code' => 'NZD',
@@ -1254,9 +1251,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             103 =>
-                array(
+                [
                     'id' => 104,
                     'name' => 'Rial Omani',
                     'code' => 'OMR',
@@ -1266,9 +1263,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             104 =>
-                array(
+                [
                     'id' => 105,
                     'name' => 'Panama, Balboa',
                     'code' => 'PAB',
@@ -1278,9 +1275,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             105 =>
-                array(
+                [
                     'id' => 106,
                     'name' => 'Peru, Nuevo Sol',
                     'code' => 'PEN',
@@ -1290,9 +1287,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             106 =>
-                array(
+                [
                     'id' => 107,
                     'name' => 'Papua New Guinea, Kina',
                     'code' => 'PGK',
@@ -1302,9 +1299,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             107 =>
-                array(
+                [
                     'id' => 108,
                     'name' => 'Philippine Peso',
                     'code' => 'PHP',
@@ -1314,9 +1311,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             108 =>
-                array(
+                [
                     'id' => 109,
                     'name' => 'Pakistan Rupee',
                     'code' => 'PKR',
@@ -1326,9 +1323,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             109 =>
-                array(
+                [
                     'id' => 110,
                     'name' => 'Poland, Zloty',
                     'code' => 'PLN',
@@ -1338,9 +1335,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             110 =>
-                array(
+                [
                     'id' => 111,
                     'name' => 'Paraguay, Guarani',
                     'code' => 'PYG',
@@ -1350,9 +1347,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             111 =>
-                array(
+                [
                     'id' => 112,
                     'name' => 'Qatari Rial',
                     'code' => 'QAR',
@@ -1362,9 +1359,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             112 =>
-                array(
+                [
                     'id' => 113,
                     'name' => 'Romania, New Leu',
                     'code' => 'RON',
@@ -1374,9 +1371,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             113 =>
-                array(
+                [
                     'id' => 114,
                     'name' => 'Serbian Dinar',
                     'code' => 'RSD',
@@ -1386,9 +1383,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             114 =>
-                array(
+                [
                     'id' => 115,
                     'name' => 'Russian Ruble',
                     'code' => 'RUB',
@@ -1398,9 +1395,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             115 =>
-                array(
+                [
                     'id' => 116,
                     'name' => 'Rwanda Franc',
                     'code' => 'RWF',
@@ -1410,9 +1407,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             116 =>
-                array(
+                [
                     'id' => 117,
                     'name' => 'Saudi Riyal',
                     'code' => 'SAR',
@@ -1422,9 +1419,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             117 =>
-                array(
+                [
                     'id' => 118,
                     'name' => 'Solomon Islands Dollar',
                     'code' => 'SBD',
@@ -1434,9 +1431,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             118 =>
-                array(
+                [
                     'id' => 119,
                     'name' => 'Seychelles Rupee',
                     'code' => 'SCR',
@@ -1446,9 +1443,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             119 =>
-                array(
+                [
                     'id' => 120,
                     'name' => 'Sudanese Dinar',
                     'code' => 'SDD',
@@ -1458,9 +1455,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:15:05',
-                ),
+                ],
             120 =>
-                array(
+                [
                     'id' => 121,
                     'name' => 'Swedish Krona',
                     'code' => 'SEK',
@@ -1470,9 +1467,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             121 =>
-                array(
+                [
                     'id' => 122,
                     'name' => 'Singapore Dollar',
                     'code' => 'SGD',
@@ -1482,9 +1479,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             122 =>
-                array(
+                [
                     'id' => 123,
                     'name' => 'Saint Helena Pound',
                     'code' => 'SHP',
@@ -1494,9 +1491,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             123 =>
-                array(
+                [
                     'id' => 124,
                     'name' => 'Sierra Leone, Leone',
                     'code' => 'SLL',
@@ -1506,9 +1503,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             124 =>
-                array(
+                [
                     'id' => 125,
                     'name' => 'Somali Shilling',
                     'code' => 'SOS',
@@ -1518,9 +1515,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             125 =>
-                array(
+                [
                     'id' => 126,
                     'name' => 'Surinam Dollar',
                     'code' => 'SRD',
@@ -1530,9 +1527,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             126 =>
-                array(
+                [
                     'id' => 127,
                     'name' => 'Sao Tome and Principe, Dobra',
                     'code' => 'STD',
@@ -1542,9 +1539,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             127 =>
-                array(
+                [
                     'id' => 128,
                     'name' => 'El Salvador Colon',
                     'code' => 'SVC',
@@ -1554,9 +1551,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             128 =>
-                array(
+                [
                     'id' => 129,
                     'name' => 'Syrian Pound',
                     'code' => 'SYP',
@@ -1566,9 +1563,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             129 =>
-                array(
+                [
                     'id' => 130,
                     'name' => 'Swaziland, Lilangeni',
                     'code' => 'SZL',
@@ -1578,9 +1575,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             130 =>
-                array(
+                [
                     'id' => 131,
                     'name' => 'Thailand, Baht',
                     'code' => 'THB',
@@ -1590,9 +1587,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             131 =>
-                array(
+                [
                     'id' => 132,
                     'name' => 'Tajikistan, Somoni',
                     'code' => 'TJS',
@@ -1602,9 +1599,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             132 =>
-                array(
+                [
                     'id' => 133,
                     'name' => 'Turkmenistani New Manat',
                     'code' => 'TMT',
@@ -1614,9 +1611,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             133 =>
-                array(
+                [
                     'id' => 134,
                     'name' => 'Tunisian Dinar',
                     'code' => 'TND',
@@ -1626,9 +1623,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             134 =>
-                array(
+                [
                     'id' => 135,
                     'name' => 'Tonga, Paanga',
                     'code' => 'TOP',
@@ -1638,9 +1635,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             135 =>
-                array(
+                [
                     'id' => 136,
                     'name' => 'Turkish Lira',
                     'code' => 'TRY',
@@ -1650,9 +1647,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             136 =>
-                array(
+                [
                     'id' => 137,
                     'name' => 'Trinidad and Tobago Dollar',
                     'code' => 'TTD',
@@ -1662,9 +1659,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             137 =>
-                array(
+                [
                     'id' => 138,
                     'name' => 'New Taiwan Dollar',
                     'code' => 'TWD',
@@ -1674,9 +1671,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             138 =>
-                array(
+                [
                     'id' => 139,
                     'name' => 'Tanzanian Shilling',
                     'code' => 'TZS',
@@ -1686,9 +1683,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             139 =>
-                array(
+                [
                     'id' => 140,
                     'name' => 'Ukraine, Hryvnia',
                     'code' => 'UAH',
@@ -1698,9 +1695,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             140 =>
-                array(
+                [
                     'id' => 141,
                     'name' => 'Uganda Shilling',
                     'code' => 'UGX',
@@ -1710,9 +1707,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             141 =>
-                array(
+                [
                     'id' => 142,
                     'name' => 'US Dollar',
                     'code' => 'USD',
@@ -1722,9 +1719,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 1,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             142 =>
-                array(
+                [
                     'id' => 143,
                     'name' => 'Peso Uruguayo',
                     'code' => 'UYU',
@@ -1734,9 +1731,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             143 =>
-                array(
+                [
                     'id' => 144,
                     'name' => 'Uzbekistan Sum',
                     'code' => 'UZS',
@@ -1746,9 +1743,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             144 =>
-                array(
+                [
                     'id' => 145,
                     'name' => 'Venezuela Bolivares Fuertes',
                     'code' => 'VEF',
@@ -1758,9 +1755,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             145 =>
-                array(
+                [
                     'id' => 146,
                     'name' => 'Viet Nam, Dong',
                     'code' => 'VND',
@@ -1770,9 +1767,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             146 =>
-                array(
+                [
                     'id' => 147,
                     'name' => 'Vanuatu, Vatu',
                     'code' => 'VUV',
@@ -1782,9 +1779,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             147 =>
-                array(
+                [
                     'id' => 148,
                     'name' => 'Samoa, Tala',
                     'code' => 'WST',
@@ -1794,9 +1791,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             148 =>
-                array(
+                [
                     'id' => 149,
                     'name' => 'Franc CFA (XAF)',
                     'code' => 'XAF',
@@ -1806,9 +1803,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             149 =>
-                array(
+                [
                     'id' => 150,
                     'name' => 'East Caribbean Dollar',
                     'code' => 'XCD',
@@ -1818,9 +1815,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             150 =>
-                array(
+                [
                     'id' => 151,
                     'name' => 'Franc CFA (XOF)',
                     'code' => 'XOF',
@@ -1830,9 +1827,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             151 =>
-                array(
+                [
                     'id' => 152,
                     'name' => 'CFP Franc',
                     'code' => 'XPF',
@@ -1842,9 +1839,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             152 =>
-                array(
+                [
                     'id' => 153,
                     'name' => 'Yemeni Rial',
                     'code' => 'YER',
@@ -1854,9 +1851,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             153 =>
-                array(
+                [
                     'id' => 154,
                     'name' => 'South Africa, Rand',
                     'code' => 'ZAR',
@@ -1866,9 +1863,9 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
+                ],
             154 =>
-                array(
+                [
                     'id' => 155,
                     'name' => 'Zambia Kwacha',
                     'code' => 'ZMW',
@@ -1878,9 +1875,7 @@ class CurrenciesTableSeeder extends Seeder
                     'active' => 0,
                     'created_at' => '2017-12-03 14:15:05',
                     'updated_at' => '2017-12-03 14:00:04',
-                ),
-        ));
-
-
+                ],
+        ]);
     }
 }

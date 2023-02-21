@@ -17,8 +17,6 @@ use Corals\User\Communication\Facades\CoralsNotification;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\ServiceProvider;
 
-use function Couchbase\defaultDecoder;
-
 class PaymentServiceProvider extends ServiceProvider
 {
     protected $defer = false;
@@ -31,7 +29,7 @@ class PaymentServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerModulesPackages();
-        if (!Module::installed()->where('code', 'corals-payment')->exists()) {
+        if (! Module::installed()->where('code', 'corals-payment')->exists()) {
             return;
         };
 
@@ -71,8 +69,10 @@ class PaymentServiceProvider extends ServiceProvider
                     //register gateways webhooks events
                     if ($events = config($configKey . '.events')) {
                         foreach ($events as $eventName => $jobClass) {
-                            \Corals\Modules\Payment\Facades\Webhooks::registerEvent("{$gateway}.{$eventName}",
-                                $jobClass);
+                            \Corals\Modules\Payment\Facades\Webhooks::registerEvent(
+                                "{$gateway}.{$eventName}",
+                                $jobClass
+                            );
                         }
                     }
                 }
@@ -90,8 +90,10 @@ class PaymentServiceProvider extends ServiceProvider
                 $payment_module->enabled = 0;
                 $payment_module->notes = $exception->getMessage();
                 $payment_module->save();
-                flash(trans('Payment::exception.payment_service.error_load_module',
-                    ['code' => $payment_module->code]))->warning();
+                flash(trans(
+                    'Payment::exception.payment_service.error_load_module',
+                    ['code' => $payment_module->code]
+                ))->warning();
             }
         }
     }
@@ -103,7 +105,7 @@ class PaymentServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (!\DB::table('modules')->where('code', 'corals-payment')
+        if (! \DB::table('modules')->where('code', 'corals-payment')
             ->where('installed', true)
             ->exists()) {
             return;
@@ -131,8 +133,10 @@ class PaymentServiceProvider extends ServiceProvider
             $loader->alias('Currency', \Corals\Modules\Payment\Facades\Currency::class);
         });
 
-        $this->app['router']->pushMiddlewareToGroup('web',
-            \Corals\Modules\Payment\Common\Middleware\CurrencyMiddleware::class);
+        $this->app['router']->pushMiddlewareToGroup(
+            'web',
+            \Corals\Modules\Payment\Common\Middleware\CurrencyMiddleware::class
+        );
     }
 
     public function registerWidgets()
@@ -147,7 +151,6 @@ class PaymentServiceProvider extends ServiceProvider
 
         \Actions::add_action('post_display_frontend_menu', [PaymentHooks::class, 'show_available_currencies_menu'], 10);
     }
-
 
     /**
      * Register currency commands.
@@ -167,7 +170,7 @@ class PaymentServiceProvider extends ServiceProvider
     {
         return [
             'Webhooks',
-            'currency'
+            'currency',
         ];
     }
 
