@@ -2,6 +2,7 @@
 
 namespace Corals\Modules\Payment;
 
+use Corals\Foundation\Providers\BasePackageServiceProvider;
 use Corals\Modules\Payment\Classes\Currency;
 use Corals\Modules\Payment\Common\Console\Cleanup;
 use Corals\Modules\Payment\Common\Console\Manage;
@@ -12,11 +13,8 @@ use Corals\Modules\Payment\Providers\PaymentAuthServiceProvider;
 use Corals\Modules\Payment\Providers\PaymentObserverServiceProvider;
 use Corals\Modules\Payment\Providers\PaymentRouteServiceProvider;
 use Corals\Settings\Facades\Modules;
-use Corals\Settings\Models\Module;
 use Corals\User\Communication\Facades\CoralsNotification;
 use Illuminate\Foundation\AliasLoader;
-use Corals\Foundation\Providers;
-use Corals\Foundation\Providers\BasePackageServiceProvider;
 
 class PaymentServiceProvider extends BasePackageServiceProvider
 {
@@ -107,7 +105,6 @@ class PaymentServiceProvider extends BasePackageServiceProvider
      */
     public function registerPackage()
     {
-
         $this->app->singleton('Webhooks', function ($app) {
             return new Webhooks();
         });
