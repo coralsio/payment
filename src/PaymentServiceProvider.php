@@ -15,35 +15,37 @@ use Corals\Settings\Facades\Modules;
 use Corals\Settings\Models\Module;
 use Corals\User\Communication\Facades\CoralsNotification;
 use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\ServiceProvider;
+use Corals\Foundation\Providers;
+use Corals\Foundation\Providers\BasePackageServiceProvider;
 
-class PaymentServiceProvider extends ServiceProvider
+class PaymentServiceProvider extends BasePackageServiceProvider
 {
     protected $defer = false;
+    protected $packageCode = 'corals-payment';
 
     /**
      * Bootstrap the application events.
      *
      * @return void
      */
-    public function boot()
+    public function bootPackage()
     {
         $this->registerModulesPackages();
-        if (! Module::installed()->where('code', 'corals-payment')->exists()) {
-            return;
-        };
-
         // Load view
         $this->loadViewsFrom(__DIR__ . '/Common/resources/views', 'Payment');
 
         //load translation
         $this->loadTranslationsFrom(__DIR__ . '/Common/resources/lang', 'Payment');
-
         $this->mergeConfigFrom(__DIR__ . '/Common/config/common.php', 'payment_common');
+
         $this->mergeConfigFrom(__DIR__ . '/Common/config/currency.php', 'currency');
 
         try {
-            $payment_modules = Module::enabled()->installed()->where('code', 'corals-payment')->orderBy('load_order')->get();
+            $payment_modules = static::$modules
+                ->where('type', 'payment')
+                ->where('enabled', true)
+                ->where('installed', true)
+                ->sortBy('load_order');
 
             foreach ($payment_modules as $payment_module) {
                 if ($payment_module->provider) {
@@ -103,13 +105,8 @@ class PaymentServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function registerPackage()
     {
-        if (! \DB::table('modules')->where('code', 'corals-payment')
-            ->where('installed', true)
-            ->exists()) {
-            return;
-        };
 
         $this->app->singleton('Webhooks', function ($app) {
             return new Webhooks();
@@ -123,10 +120,6 @@ class PaymentServiceProvider extends ServiceProvider
         });
 
 
-        $this->app->register(PaymentRouteServiceProvider::class);
-        $this->app->register(PaymentObserverServiceProvider::class);
-        $this->app->register(PaymentAuthServiceProvider::class);
-
         $this->app->booted(function () {
             $loader = AliasLoader::getInstance();
             $loader->alias('Payments', \Corals\Modules\Payment\Facades\Payments::class);
@@ -137,6 +130,9 @@ class PaymentServiceProvider extends ServiceProvider
             'web',
             \Corals\Modules\Payment\Common\Middleware\CurrencyMiddleware::class
         );
+        $this->app->register(PaymentRouteServiceProvider::class);
+        $this->app->register(PaymentObserverServiceProvider::class);
+        $this->app->register(PaymentAuthServiceProvider::class);
     }
 
     public function registerWidgets()
