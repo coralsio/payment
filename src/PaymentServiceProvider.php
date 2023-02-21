@@ -16,10 +16,11 @@ use Corals\Settings\Facades\Modules;
 use Corals\Settings\Models\Module;
 use Corals\User\Communication\Facades\CoralsNotification;
 use Illuminate\Foundation\AliasLoader;
+use Corals\Foundation\Providers;
+use Corals\Foundation\Providers\BasePackageServiceProvider;
 
 class PaymentServiceProvider extends BasePackageServiceProvider
 {
-
     protected $defer = false;
     protected $packageCode = 'corals-payment';
 
@@ -30,18 +31,22 @@ class PaymentServiceProvider extends BasePackageServiceProvider
      */
     public function bootPackage()
     {
-        logger(__METHOD__);
+        $this->registerModulesPackages();
         // Load view
         $this->loadViewsFrom(__DIR__ . '/Common/resources/views', 'Payment');
 
         //load translation
         $this->loadTranslationsFrom(__DIR__ . '/Common/resources/lang', 'Payment');
-
         $this->mergeConfigFrom(__DIR__ . '/Common/config/common.php', 'payment_common');
+
         $this->mergeConfigFrom(__DIR__ . '/Common/config/currency.php', 'currency');
 
         try {
-            $payment_modules = Module::enabled()->installed()->where('type', 'payment')->orderBy('load_order')->get();
+            $payment_modules = static::$modules
+                ->where('type', 'payment')
+                ->where('enabled', true)
+                ->where('installed', true)
+                ->sortBy('load_order');
 
             foreach ($payment_modules as $payment_module) {
                 if ($payment_module->provider) {
@@ -86,8 +91,10 @@ class PaymentServiceProvider extends BasePackageServiceProvider
                 $payment_module->enabled = 0;
                 $payment_module->notes = $exception->getMessage();
                 $payment_module->save();
-                flash(trans('Payment::exception.payment_service.error_load_module',
-                    ['code' => $payment_module->code]))->warning();
+                flash(trans(
+                    'Payment::exception.payment_service.error_load_module',
+                    ['code' => $payment_module->code]
+                ))->warning();
             }
         }
     }
@@ -99,8 +106,6 @@ class PaymentServiceProvider extends BasePackageServiceProvider
      */
     public function registerPackage()
     {
-        logger(__METHOD__);
-
         $this->app->singleton('Webhooks', function ($app) {
             return new Webhooks();
         });
@@ -111,6 +116,7 @@ class PaymentServiceProvider extends BasePackageServiceProvider
                 $app['cache']
             );
         });
+
 
         $this->app->booted(function () {
             $loader = AliasLoader::getInstance();
