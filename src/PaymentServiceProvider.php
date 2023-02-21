@@ -17,7 +17,6 @@ use Corals\Settings\Models\Module;
 use Corals\User\Communication\Facades\CoralsNotification;
 use Illuminate\Foundation\AliasLoader;
 use Corals\Foundation\Providers;
-use Corals\Foundation\Providers\BasePackageServiceProvider;
 
 class PaymentServiceProvider extends BasePackageServiceProvider
 {
