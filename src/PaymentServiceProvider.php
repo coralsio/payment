@@ -18,7 +18,13 @@ use Illuminate\Foundation\AliasLoader;
 
 class PaymentServiceProvider extends BasePackageServiceProvider
 {
+    /**
+     * @var
+     */
     protected $defer = false;
+    /**
+     * @var
+     */
     protected $packageCode = 'corals-payment';
 
     /**
@@ -28,7 +34,6 @@ class PaymentServiceProvider extends BasePackageServiceProvider
      */
     public function bootPackage()
     {
-        $this->registerModulesPackages();
         // Load view
         $this->loadViewsFrom(__DIR__ . '/Common/resources/views', 'Payment');
 
