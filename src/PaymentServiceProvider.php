@@ -85,7 +85,7 @@ class PaymentServiceProvider extends BasePackageServiceProvider
 
             $this->registerWidgets();
             $this->registerHooks();
-//
+            //
             if ($this->app->runningInConsole()) {
                 $this->registerCommands();
             }
