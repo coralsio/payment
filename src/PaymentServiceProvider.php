@@ -54,7 +54,7 @@ class PaymentServiceProvider extends BasePackageServiceProvider
                 if ($payment_module->provider) {
                     $this->app->register($payment_module->provider);
                 }
-                $configFilesPath = base_path() . '/vendor/corals/' . $payment_module->folder . '/src/config';
+                $configFilesPath = __DIR__ . '/' . $payment_module->folder . '/config';
 
                 $configFiles = \Illuminate\Support\Facades\File::allFiles($configFilesPath);
 
