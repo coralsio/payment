@@ -6,7 +6,7 @@
   "description": "Payment Gateways Core",
   "namespace": "Corals\\Modules\\Payment",
   "provider": "PaymentServiceProvider",
-  "version": "5.1",
+  "version": "5.0.3",
   "folder": "payment",
   "load_order": "9999",
   "autoload": "psr-4",
