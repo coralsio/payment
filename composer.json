@@ -27,9 +27,6 @@
         "phpunit/phpunit": "^9",
         "laravel/pint": "^1.0"
     },
-    "require": {
-        "corals/utility-tag": "@dev"
-    },
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/pest --coverage",
@@ -52,7 +49,8 @@
         "php-http/discovery": "^1.2.1",
         "moneyphp/money": "^3.1",
         "psr/http-client": "^1.0",
-        "laravel-validation-rules/credit-card": "^1.3"
+        "laravel-validation-rules/credit-card": "^1.3",
+        "corals/utility-tag": "@dev"
     },
     "minimum-stability": "dev"
 },
