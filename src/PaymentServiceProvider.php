@@ -54,7 +54,7 @@ class PaymentServiceProvider extends BasePackageServiceProvider
                 if ($payment_module->provider) {
                     $this->app->register($payment_module->provider);
                 }
-                $configFilesPath = __DIR__ . '/' . $payment_module->folder . '/config';
+                $configFilesPath = base_path() . '/vendor/corals/' . $payment_module->folder . '/src/config';
 
                 $configFiles = \Illuminate\Support\Facades\File::allFiles($configFilesPath);
 
@@ -67,9 +67,10 @@ class PaymentServiceProvider extends BasePackageServiceProvider
 
                     $gateway_name = config($configKey . '.name');
 
-                    $this->loadViewsFrom(__DIR__ . "/{$gateway_name}/resources/views", $gateway_name);
 
-                    $this->loadTranslationsFrom(__DIR__ . "/{$gateway_name}/resources/lang", $gateway_name);
+                    $this->loadViewsFrom(base_path() . '/vendor/corals' . "/{$payment_module->folder}/src/resources/views", $gateway_name);
+
+                    $this->loadTranslationsFrom(base_path() . '/vendor/corals'  . "/{$payment_module->folder}/src/resources/lang", $gateway_name);
 
                     //register gateways webhooks events
                     if ($events = config($configKey . '.events')) {
@@ -85,7 +86,7 @@ class PaymentServiceProvider extends BasePackageServiceProvider
 
             $this->registerWidgets();
             $this->registerHooks();
-//
+            //
             if ($this->app->runningInConsole()) {
                 $this->registerCommands();
             }
