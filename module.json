@@ -1,21 +1,25 @@
 {
-  "code": "corals-payment",
-  "name": "Payment Gateways Core",
-  "author": "Corals",
-  "type": "module",
-  "description": "Payment Gateways Core",
-  "namespace": "Corals\\Modules\\Payment",
-  "provider": "PaymentServiceProvider",
-  "version": "5.1",
-  "folder": "payment",
-  "load_order": "9999",
-  "autoload": "psr-4",
-  "icon": "fa fa-desktop",
-  "require": {
-    "corals-foundation": "^6.0",
-    "corals-settings": "^5.0",
-    "corals-utility": "^4.0",
-    "corals-utility-comment": "1.0",
-    "corals-utility-tag": "1.0"
-  }
+    "code": "corals-payment",
+    "name": "Payment Gateways Core",
+    "author": "Corals",
+    "type": "module",
+    "description": "Payment Gateways Core",
+    "namespace": "Corals\\Modules\\Payment",
+    "provider": "PaymentServiceProvider",
+    "version": "5.1.4",
+    "load_order": "500",
+    "folder": "Payment",
+    "autoload": "psr-4",
+    "icon": "fa fa-money",
+    "require": {
+        "corals-foundation": "^6.0",
+        "corals-settings": "^5.0"
+    },
+    "supported_platforms": [
+        "Ecommerce",
+        "Marketplace",
+        "Classified",
+        "Subscription",
+        "Reservation"
+    ]
 }
