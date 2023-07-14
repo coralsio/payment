@@ -18,7 +18,7 @@ vendor/bin/phpunit vendor/corals/payment/tests
 
 ## Currency Configuration
 
-<span style="color: #ff9900;">Please make sure to clear cache on currency configuration changes to take effect, this can be done from <a href="https://www.laraship.com/docs/laraship/laraship-configuration/cache-clear/">settings=&gt; Cache management</a></span>
+Please make sure to clear cache on currency configuration changes to take effect, this can be done from <a href="https://www.laraship.com/docs/laraship/laraship-configuration/cache-clear/">settings=&gt; Cache management</a>
 
 ### System Currency (Admin) :
 Prices within products and plans setup will be using the system (admin) currency configuration, this can be configured under Settings
@@ -29,7 +29,7 @@ Prices within products and plans setup will be using the system (admin) currency
 ### Website( Frontend Currency)
 Laraship does support multiple currencies in your store, you can configure active currencies under Payments => Currencies
 
-<p><img src="https://www.laraship.com/wp-content/uploads/2017/12/laraship_payments_currency_edit.png" ></p>
+<p><img src="https://www.laraship.com/wp-content/uploads/2017/12/laraship_payments_currency_edit.png" alt="" width="470" height="380" ></p>
 <p>&nbsp;</p>
 
 <p><img src="https://www.laraship.com/wp-content/uploads/2017/12/laraship_payments_currencies.png"></p>
