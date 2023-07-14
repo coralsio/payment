@@ -1,69 +1,58 @@
+# Corals Payment
 
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/support-ukraine.svg?t=1" />](https://supportukrainenow.org)
-
-# :package_description
-
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-[![Tests](https://github.com/:vendor_slug/:package_slug/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/:vendor_slug/:package_slug/actions/workflows/run-tests.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/:vendor_slug/:package_slug.svg?style=flat-square)](https://packagist.org/packages/:vendor_slug/:package_slug)
-<!--delete-->
----
-This package can be used as to scaffold a framework agnostic package. Follow these steps to get started:
-
-1. Press the "Use template" button at the top of this repo to create a new repo with the contents of this skeleton
-2. Run "php ./configure.php" to run a script that will replace all placeholders throughout all the files
-3. Have fun creating your package.
-4. If you need help creating a package, consider picking up our <a href="https://laravelpackage.training">Laravel Package Training</a> video course.
----
-<!--/delete-->
-This is where your description should go. Try and limit it to a paragraph or two. Consider adding a small example.
-
-## Support us
-
-[<img src="https://github-ads.s3.eu-central-1.amazonaws.com/:package_name.jpg?t=1" width="419px" />](https://spatie.be/github-ad-click/:package_name)
-
-We invest a lot of resources into creating [best in class open source packages](https://spatie.be/open-source). You can support us by [buying one of our paid products](https://spatie.be/open-source/support-us).
-
-We highly appreciate you sending us a postcard from your hometown, mentioning which of our package(s) you are using. You'll find our address on [our contact page](https://spatie.be/about-us). We publish all received postcards on [our virtual postcard wall](https://spatie.be/open-source/postcards).
+- [Currency Configuration](#currency-configuration)
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require :vendor_slug/:package_slug
-```
-
-## Usage
-
-```php
-$skeleton = new VendorName\Skeleton();
-echo $skeleton->echoPhrase('Hello, VendorName!');
+composer require corals/payment
 ```
 
 ## Testing
 
 ```bash
-composer test
+vendor/bin/phpunit vendor/corals/payment/tests 
 ```
 
-## Changelog
+## Currency Configuration
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+<span style="color: #ff9900;">Please make sure to clear cache on currency configuration changes to take effect, this can be done from <a href="https://www.laraship.com/docs/laraship/laraship-configuration/cache-clear/">settings=&gt; Cache management</a></span>
 
-## Contributing
+### System Currency (Admin) :
+Prices within products and plans setup will be using the system (admin) currency configuration, this can be configured under Settings
 
-Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details.
+<p><img src="https://www.laraship.com/wp-content/uploads/2017/12/laraship_payments_settings.png"></p>
+<p>&nbsp;</p>
 
-## Security Vulnerabilities
+### Website( Frontend Currency)
+Laraship does support multiple currencies in your store, you can configure active currencies under Payments => Currencies
 
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+<p><img src="https://www.laraship.com/wp-content/uploads/2017/12/laraship_payments_currency_edit.png" ></p>
+<p>&nbsp;</p>
 
-## Credits
+<p><img src="https://www.laraship.com/wp-content/uploads/2017/12/laraship_payments_currencies.png"></p>
+<p>&nbsp;</p>
 
-- [:author_name](https://github.com/:author_username)
-- [All Contributors](../../contributors)
+### Default Currency
+The default currency is the one that will be auto-selected when user access the site first time, it can be adjusted inside .env file
 
-## License
+```php
+DEFAULT_CURRENCY=USD
+```
+<p>&nbsp;</p>
 
-The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+### Updating Exchange
+Update exchange rates from OpenExchangeRates.org. An API key is needed to use OpenExchangeRates.org. Add yours to the config file.
+
+```php
+php artisan currency:update
+```
+
+### Cleanup
+Used to clean the Laravel cached exchanged rates and refresh it from the database. Note that cached exchanged rates are cleared after they are updated using one of the commands above.
+
+```php
+php artisan currency:cleanup
+```
