@@ -4,7 +4,7 @@
 
         @php \Actions::do_action('pre_order_checkout_form',$gateway) @endphp
         <div class="">
-            {!! Form::open( ['url' => url($urlPrefix.'checkout/step/select-payment'),'method'=>'POST','files'=>true,'class'=>'ajax-form','id'=>'PaymentForm']) !!}
+            {!! CoralsForm::openForm(null,['url' => url($urlPrefix.'checkout/step/select-payment'),'method'=>'POST','files'=>true,'class'=>'ajax-form','id'=>'PaymentForm']) !!}
 
             <h4>@lang('Payment::labels.select_payment')</h4>
             <hr>
@@ -14,7 +14,7 @@
                 <span data-name="checkoutToken"></span>
             </div>
         </div>
-        {!! Form::close() !!}
+        {!! CoralsForm::closeForm() !!}
         <div id="gatewayPayment">
 
         </div>
