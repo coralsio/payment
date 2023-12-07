@@ -17,7 +17,7 @@ class CreateTransactionsTable extends Migration
     {
         Schema::create('payment_transactions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('code');
+            $table->string('code')->nullable();
 
             $table->morphs('owner');
 
