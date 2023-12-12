@@ -13,9 +13,19 @@ class MonthlyRevenueWidget
 
     public function run($args)
     {
+        $connection = config('database.default');
+
+        if ($connection === 'mysql') {
+            $dateFormatMethod = 'DATE_FORMAT';
+            $dateFormat='%M %Y';
+        } else if ($connection === 'pgsql') {
+            $dateFormatMethod = 'TO_CHAR';
+            $dateFormat='MM-YY';
+        }
+
         $data = Invoice::where('status', 'paid')->select(
             \DB::raw('sum(total) as sums'),
-            \DB::raw("DATE_FORMAT(due_date,'%M %Y') as months")
+            \DB::raw("$dateFormatMethod(due_date, $dateFormat) as months")
         )
             ->groupBy('months')
             ->pluck('sums', 'months')->toArray();
