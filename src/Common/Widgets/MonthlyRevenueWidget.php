@@ -17,10 +17,10 @@ class MonthlyRevenueWidget
 
         if ($connection === 'mysql') {
             $dateFormatMethod = 'DATE_FORMAT';
-            $dateFormat='%M %Y';
+            $dateFormat = "'%M %Y'";
         } else if ($connection === 'pgsql') {
             $dateFormatMethod = 'TO_CHAR';
-            $dateFormat="'MM-YY'";
+            $dateFormat = "'MM-YY'";
         }
 
         $data = Invoice::where('status', 'paid')->select(
