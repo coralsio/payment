@@ -15,6 +15,7 @@ use Corals\Modules\Payment\Providers\PaymentRouteServiceProvider;
 use Corals\Settings\Facades\Modules;
 use Corals\User\Communication\Facades\CoralsNotification;
 use Illuminate\Foundation\AliasLoader;
+use Illuminate\Support\Facades\DB;
 
 class PaymentServiceProvider extends BasePackageServiceProvider
 {
@@ -93,9 +94,11 @@ class PaymentServiceProvider extends BasePackageServiceProvider
             $this->addEvents();
         } catch (\Exception $exception) {
             if (isset($payment_module)) {
-                $payment_module->enabled = 0;
-                $payment_module->notes = $exception->getMessage();
-                $payment_module->save();
+                \DB::table('modules')->where('code', $payment_module->code)
+                    ->update([
+                        'enabled' => 0,
+                        'notes' => $exception->getMessage()
+                    ]);
                 flash(trans(
                     'Payment::exception.payment_service.error_load_module',
                     ['code' => $payment_module->code]
