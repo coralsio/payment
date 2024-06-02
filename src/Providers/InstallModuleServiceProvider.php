@@ -5,6 +5,7 @@ namespace Corals\Modules\Payment\Providers;
 use Corals\Foundation\Providers\BaseInstallModuleServiceProvider;
 use Corals\Modules\Payment\Common\database\migrations\CreateCurrencyTable;
 use Corals\Modules\Payment\Common\database\migrations\CreateInvoicesTable;
+use Corals\Modules\Payment\Common\database\migrations\CreatePaymentMethodsTable;
 use Corals\Modules\Payment\Common\database\migrations\CreateTaxablesTable;
 use Corals\Modules\Payment\Common\database\migrations\CreateTaxClassesTable;
 use Corals\Modules\Payment\Common\database\migrations\CreateTaxesTable;
@@ -22,6 +23,7 @@ class InstallModuleServiceProvider extends BaseInstallModuleServiceProvider
         CreateTaxablesTable::class,
         CreateCurrencyTable::class,
         CreateTransactionsTable::class,
+        CreatePaymentMethodsTable::class
     ];
 
     protected function providerBooted()

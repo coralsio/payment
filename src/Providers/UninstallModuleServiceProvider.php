@@ -5,6 +5,7 @@ namespace Corals\Modules\Payment\Providers;
 use Corals\Foundation\Providers\BaseUninstallModuleServiceProvider;
 use Corals\Modules\Payment\Common\database\migrations\CreateCurrencyTable;
 use Corals\Modules\Payment\Common\database\migrations\CreateInvoicesTable;
+use Corals\Modules\Payment\Common\database\migrations\CreatePaymentMethodsTable;
 use Corals\Modules\Payment\Common\database\migrations\CreateTaxablesTable;
 use Corals\Modules\Payment\Common\database\migrations\CreateTaxClassesTable;
 use Corals\Modules\Payment\Common\database\migrations\CreateTaxesTable;
@@ -22,6 +23,8 @@ class UninstallModuleServiceProvider extends BaseUninstallModuleServiceProvider
         CreateTaxesTable::class,
         CreateTaxablesTable::class,
         CreateCurrencyTable::class,
+        CreateCardsTable::class,
+        CreatePaymentMethodsTable::class
     ];
 
     protected function providerBooted()
