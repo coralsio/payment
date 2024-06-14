@@ -43,7 +43,7 @@ class CurrenciesDataTable extends BaseDataTable
     {
         return [
             'name' => ['title' => trans('Payment::attributes.currency.name'), 'class' => 'col-md-3', 'type' => 'text', 'condition' => 'like', 'active' => true],
-            'code' => ['title' => trans('Payment::attributes.currency.code'), 'class' => 'col-md-2', 'type' => 'select', 'options' => Payments::getCodeList(), 'active' => true],
+            'code' => ['title' => trans('Payment::attributes.currency.code'), 'class' => 'col-md-2', 'type' => 'select2', 'options' => Payments::getCodeList(), 'active' => true],
         ];
     }
 
