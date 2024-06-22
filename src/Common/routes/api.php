@@ -12,3 +12,4 @@ Route::post('calculate-taxes', 'PaymentsController@calculateTaxClassTaxes')->nam
 
 Route::apiResource('tax-classes', 'TaxClassesController', ['as' => 'api.payment', 'only' => ['index']]);
 Route::apiResource('tax-classes.taxes', 'TaxesController', ['as' => 'api.payment', 'only' => ['index']]);
+Route::apiResource('payment-methods', 'PaymentMethodsController')->only('destroy');

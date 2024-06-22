@@ -4,11 +4,13 @@ namespace Corals\Modules\Payment\Providers;
 
 use Corals\Modules\Payment\Common\Models\Currency;
 use Corals\Modules\Payment\Common\Models\Invoice;
+use Corals\Modules\Payment\Common\Models\PaymentMethod;
 use Corals\Modules\Payment\Common\Models\Tax;
 use Corals\Modules\Payment\Common\Models\TaxClass;
 use Corals\Modules\Payment\Common\Models\Transaction;
 use Corals\Modules\Payment\Common\Policies\CurrencyPolicy;
 use Corals\Modules\Payment\Common\Policies\InvoicePolicy;
+use Corals\Modules\Payment\Common\Policies\PaymentMethodPolicy;
 use Corals\Modules\Payment\Common\Policies\TaxClassPolicy;
 use Corals\Modules\Payment\Common\Policies\TaxPolicy;
 use Corals\Modules\Payment\Common\Policies\TransactionPolicy;
@@ -28,6 +30,7 @@ class PaymentAuthServiceProvider extends ServiceProvider
         Currency::class => CurrencyPolicy::class,
         TaxClass::class => TaxClassPolicy::class,
         Tax::class => TaxPolicy::class,
+        PaymentMethod::class => PaymentMethodPolicy::class
     ];
 
     /**
