@@ -35,8 +35,9 @@ class InvoiceTransformer extends BaseTransformer
         $email = "";
         $billing_address = "";
 
-        if ($invoice->hasProperty('billing_address')) {
-            $billing_details = $invoice->getProperty('billing_address');
+        $billing_details = $invoice->getProperty('billing_address');
+
+        if ($invoice->hasProperty('billing_address') && $billing_details) {
             $customer = $billing_details['first_name'] . ' ' . $billing_details['last_name'];
             $email = $billing_details['email'];
             $billing_address = $invoice->display_address($billing_details);

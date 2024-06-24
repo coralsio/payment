@@ -121,7 +121,7 @@ class Currency
 
         $number = Number::fromString($amount);
 
-        $money = $moneyParser->parse((string)$number, $currency->getCode());
+        $money = $moneyParser->parse((string)$number, $currency);
 
         // Check for a negative amount.
         if (! $this->negativeAmountAllowed && $money->isNegative()) {
