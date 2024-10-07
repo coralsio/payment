@@ -23,7 +23,7 @@ class InvoicesController extends BaseController
         $this->title_singular = 'Payment::module.invoice.title_singular';
 
         $this->corals_middleware_except = array_merge($this->corals_middleware_except, [
-            'publicInvoice',
+            'publicInvoice', 'stream'
         ]);
 
         parent::__construct();
@@ -219,6 +219,15 @@ class InvoicesController extends BaseController
         return $pdf->download($fileName);
     }
 
+    public function stream(Request $request, Invoice $invoice)
+    {
+        $pdf = \PDF::loadView('Payment::invoices.invoice', ['invoice' => $invoice, 'PDF' => true]);
+
+        $fileName = $invoice->getPdfFileName();
+
+        return $pdf->stream($fileName);
+    }
+
     /**
      * @param Request $request
      * @param Invoice $invoice
@@ -226,7 +235,7 @@ class InvoicesController extends BaseController
      */
     public function sendInvoice(Request $request, Invoice $invoice)
     {
-        if (! user()->can('sendInvoice', $invoice)) {
+        if (!user()->can('sendInvoice', $invoice)) {
             abort(403);
         }
 
