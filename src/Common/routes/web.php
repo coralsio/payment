@@ -31,6 +31,10 @@ Route::get('my-invoices', 'InvoicesController@myInvoices');
 Route::post('invoices/bulk-action', 'InvoicesController@bulkAction');
 Route::resource('invoices', 'InvoicesController');
 Route::get('invoices/{invoice}/download', 'InvoicesController@download');
+Route::get('invoices/{invoice}/stream', 'InvoicesController@stream')
+    ->name('streamInvoice')
+    ->middleware('signed');
+
 Route::post('invoices/{invoice}/send-invoice', 'InvoicesController@sendInvoice');
 Route::post('webhooks/{gateway?}', 'WebhooksController');
 Route::post('currencies/bulk-action', 'CurrenciesController@bulkAction');
